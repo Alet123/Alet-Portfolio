@@ -1,63 +1,602 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alet Jacob – Graphic Designer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <script defer src="script.js"></script>
-</head>
-<body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <header class="hero" data-aos="fade-down">
-    <h1>Alet Jacob</h1>
-    <p>Creative Graphic Designer</p>
-    <div class="social-links">
-      <a href="https://www.behance.net/yourusername" target="_blank">Behance</a>
-      <a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a>
-    </div>
+  <!--=============== FAVICON ===============-->
+  <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+  <!--=============== BOXICONS ===============-->
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet" />
+
+  <!--=============== SWIPER CSS ===============-->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Design Portfolio</title>
+</head>
+
+<body>
+  <!--=============== HEADER ===============-->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="nav__logo">Design Portfolio</a>
+      <div class="color-palette">
+        <i class="bx bx-brush change__color change__purple" onclick="set_color_purple()"></i>
+        <i class="bx bx-brush change__color change__pink" onclick="set_color_pink()"></i>
+        <i class="bx bx-brush change__color change__orange" onclick="set_color_orange()"></i>
+        <i class="bx bx-brush change__color change__blue" onclick="set_color_blue()"></i>
+        <i class="bx bx-brush change__color change__bluegray" onclick="set_color_bluegray()"></i>
+      </div>
+      <div class="nav__menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">
+              <i class="bx bx-home-alt"></i>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#about" class="nav__link">
+              <i class="bx bx-user"></i>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#skills" class="nav__link">
+              <i class="bx bx-palette"></i>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#portfolio" class="nav__link">
+              <i class="bx bx-briefcase-alt-2"></i>
+            </a>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">
+              <i class="bx bx-message-square-detail"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- Theme change button -->
+      <i class="bx bx-moon change-theme" id="theme-button"></i>
+    </nav>
   </header>
 
-  <section class="portfolio" data-aos="fade-up">
-    <h2>My Work</h2>
-    <div class="gallery">
-      <img src="assets/work1.jpg" alt="Project 1" />
-      <img src="assets/work2.jpg" alt="Project 2" />
+  <!--=============== MAIN ===============-->
+  <main class="main">
+    <!--=============== HOME ===============-->
+    <section class="home section" id="home">
+      <div class="home__container container grid">
+        <div class="home__data">
+          <span class="home__greeting">Hello, I'm</span>
+          <h1 class="home__name">[YOUR NAME]</h1>
+          <h3 class="home__education">GRAPHIC DESIGNER | VISUAL ARTIST</h3>
+
+          <div class="home__buttons">
+            <a download="" href="./assets/pdf/Resume.pdf" class="button button--ghost">
+              Download CV
+            </a>
+            <a href="#portfolio" class="button">View Portfolio</a>
+          </div>
+        </div>
+        <div class="home__handle">
+          <img src="assets/img/profile.jpg" alt="Designer portrait" class="home__img" />
+        </div>
+        <div class="home__social">
+          <a href="#" target="_blank" class="home__social-link">
+            <i class="bx bxl-behance"></i>
+          </a>
+          <a href="#" target="_blank" class="home__social-link">
+            <i class="bx bxl-dribbble"></i>
+          </a>
+          <a href="#" target="_blank" class="home__social-link">
+            <i class='bx bxl-instagram-alt'></i>
+          </a>
+        </div>
+
+        <a href="#about" class="home__scroll">
+          <i class="bx bx-mouse home__scroll-icon"></i>
+          <span class="home__scroll-name">Scroll Down</span>
+        </a>
+      </div>
+    </section>
+
+    <!--=============== ABOUT ===============-->
+    <section class="about section" id="about">
+      <span class="section__subtitle">My Introduction</span>
+      <h2 class="section__title">About Me</h2>
+
+      <div class="about__container container grid">
+        <img src="assets/img/about.png" alt="Designer at work" class="about__img">
+
+        <div class="about__data">
+          <div class="about__info">
+            <div class="about__box">
+              <i class="bx bx-award about__icon"></i>
+              <h3 class="about__title">Experience</h3>
+              <span class="about__subtitle">5+ Years</span>
+            </div>
+
+            <div class="about__box">
+              <i class="bx bx-briefcase-alt about__icon"></i>
+              <h3 class="about__title">Completed</h3>
+              <span class="about__subtitle">50+ Projects</span>
+            </div>
+
+            <div class="about__box">
+              <i class="bx bx-support about__icon"></i>
+              <h3 class="about__title">Clients</h3>
+              <span class="about__subtitle">30+ Worldwide</span>
+            </div>
+          </div>
+          <p class="about__description">
+            Passionate graphic designer with expertise in branding, print design, and digital media. 
+            I create visually compelling solutions that communicate ideas effectively and leave lasting impressions.
+          </p>
+
+          <a href="#contact" class="button">Contact Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== SKILLS ===============-->
+    <section class="skills section" id="skills">
+      <span class="section__subtitle">My Expertise</span>
+      <h2 class="section__title">Design Skills</h2>
+
+      <div class="skills__container container">
+        <div class="skills__content">
+          <div class="skills__box">
+            <div class="skills__group grid">
+              <!-- Row 1 -->
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxl-adobe skills__tech-icon"></i>
+                  <h3 class="skills__name">Photoshop</h3>
+                </div>
+              </div>
+              
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxl-adobe skills__tech-icon"></i>
+                  <h3 class="skills__name">Illustrator</h3>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxl-adobe skills__tech-icon"></i>
+                  <h3 class="skills__name">InDesign</h3>
+                </div>
+              </div>
+
+              <!-- Row 2 -->
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxl-figma skills__tech-icon"></i>
+                  <h3 class="skills__name">Figma</h3>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxl-sketch skills__tech-icon"></i>
+                  <h3 class="skills__name">Sketch</h3>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxl-adobe skills__tech-icon"></i>
+                  <h3 class="skills__name">XD</h3>
+                </div>
+              </div>
+
+              <!-- Row 3 -->
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxs-paint skills__tech-icon"></i>
+                  <h3 class="skills__name">Typography</h3>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bxs-color skills__tech-icon"></i>
+                  <h3 class="skills__name">Color Theory</h3>
+                </div>
+              </div>
+
+              <div class="skills__data">
+                <div class="skills__icon-container">
+                  <i class="bx bx-shape-triangle skills__tech-icon"></i>
+                  <h3 class="skills__name">Layout</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!--=============== PORTFOLIO ===============-->
+    <section class="portfolio section" id="portfolio">
+      <span class="section__subtitle">My Creative Work</span>
+      <h2 class="section__title">Design Portfolio</h2>
+
+      <div class="portfolio__filters">
+        <span class="portfolio__item active-portfolio" data-filter='all'>All</span>
+        <span class="portfolio__item" data-filter='branding'>Branding</span>
+        <span class="portfolio__item" data-filter='print'>Print</span>
+        <span class="portfolio__item" data-filter='digital'>Digital</span>
+        <span class="portfolio__item" data-filter='illustration'>Illustration</span>
+      </div>
+
+      <div class="portfolio__container container grid">
+        <!-- Branding Project 1 -->
+        <div class="portfolio__card mix branding">
+          <img src="assets/img/branding1.jpg" alt="Branding Project" class="portfolio__img">
+          <div class="portfolio__overlay">
+            <h3 class="portfolio__title">Corporate Branding</h3>
+            <p class="portfolio__description">Logo, stationery and brand guidelines</p>
+            <a href="#" class="portfolio__button">
+              View Case Study <i class="bx bx-right-arrow-alt portfolio__icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Print Project 1 -->
+        <div class="portfolio__card mix print">
+          <img src="assets/img/print1.jpg" alt="Print Design" class="portfolio__img">
+          <div class="portfolio__overlay">
+            <h3 class="portfolio__title">Magazine Layout</h3>
+            <p class="portfolio__description">Editorial design for lifestyle magazine</p>
+            <a href="#" class="portfolio__button">
+              View Details <i class="bx bx-right-arrow-alt portfolio__icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Digital Project 1 -->
+        <div class="portfolio__card mix digital">
+          <img src="assets/img/digital1.jpg" alt="Web Design" class="portfolio__img">
+          <div class="portfolio__overlay">
+            <h3 class="portfolio__title">Website UI/UX</h3>
+            <p class="portfolio__description">E-commerce platform redesign</p>
+            <a href="#" class="portfolio__button">
+              View Project <i class="bx bx-right-arrow-alt portfolio__icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Illustration Project 1 -->
+        <div class="portfolio__card mix illustration">
+          <img src="assets/img/illustration1.jpg" alt="Illustration" class="portfolio__img">
+          <div class="portfolio__overlay">
+            <h3 class="portfolio__title">Character Design</h3>
+            <p class="portfolio__description">Series of mascot characters</p>
+            <a href="#" class="portfolio__button">
+              See More <i class="bx bx-right-arrow-alt portfolio__icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Branding Project 2 -->
+        <div class="portfolio__card mix branding">
+          <img src="assets/img/branding2.jpg" alt="Brand Identity" class="portfolio__img">
+          <div class="portfolio__overlay">
+            <h3 class="portfolio__title">Startup Identity</h3>
+            <p class="portfolio__description">Complete visual identity system</p>
+            <a href="#" class="portfolio__button">
+              View Case Study <i class="bx bx-right-arrow-alt portfolio__icon"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Print Project 2 -->
+        <div class="portfolio__card mix print">
+          <img src="assets/img/print2.jpg" alt="Packaging Design" class="portfolio__img">
+          <div class="portfolio__overlay">
+            <h3 class="portfolio__title">Product Packaging</h3>
+            <p class="portfolio__description">Sustainable packaging solution</p>
+            <a href="#" class="portfolio__button">
+              View Details <i class="bx bx-right-arrow-alt portfolio__icon"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--=============== TESTIMONIALS ===============-->
+    <section class="testimonials section">
+      <span class="section__subtitle">Client Feedback</span>
+      <h2 class="section__title">Testimonials</h2>
+
+      <div class="testimonials__container container swiper">
+        <div class="swiper-wrapper">
+          <!-- Testimonial 1 -->
+          <div class="testimonials__card swiper-slide">
+            <img src="assets/img/client1.jpg" alt="Client" class="testimonials__img">
+            <h3 class="testimonials__name">Sarah Johnson</h3>
+            <p class="testimonials__position">Marketing Director, TechCorp</p>
+            <p class="testimonials__description">
+              "Working with [Your Name] was an absolute pleasure. Their branding work perfectly captured our company vision and elevated our market presence."
+            </p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonials__card swiper-slide">
+            <img src="assets/img/client2.jpg" alt="Client" class="testimonials__img">
+            <h3 class="testimonials__name">Michael Chen</h3>
+            <p class="testimonials__position">Founder, StartupX</p>
+            <p class="testimonials__description">
+              "The designs exceeded our expectations. Professional, creative, and delivered on time. We'll definitely work together again!"
+            </p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonials__card swiper-slide">
+            <img src="assets/img/client3.jpg" alt="Client" class="testimonials__img">
+            <h3 class="testimonials__name">Emma Rodriguez</h3>
+            <p class="testimonials__position">Editor, Urban Magazine</p>
+            <p class="testimonials__description">
+              "Our readership has grown significantly since the redesign. The layouts are both beautiful and functional."
+            </p>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!--=============== CONTACT ===============-->
+    <section class="contact section" id="contact">
+      <span class="section__subtitle">Get in touch</span>
+      <h2 class="section__title">Contact Me</h2>
+
+      <div class="contact__container container grid">
+        <div class="contact__content">
+          <h3 class="contact__title">Let's talk design</h3>
+
+          <div class="contact__info">
+            <div class="contact__card">
+              <i class="bx bxl-behance contact__card--icon"></i>
+              <h3 class="contact__card-title">Behance</h3>
+              <span class="contact__card-data">View my portfolio</span>
+
+              <a href="#" target="_blank" class="contact__button">
+                Visit Profile <i class="bx bx-right-arrow-alt contact__button-icon"></i>
+              </a>
+            </div>
+
+            <div class="contact__card">
+              <i class="bx bxl-dribbble contact__card--icon"></i>
+              <h3 class="contact__card-title">Dribbble</h3>
+              <span class="contact__card-data">See my latest work</span>
+
+              <a href="#" target="_blank" class="contact__button">
+                Visit Profile <i class="bx bx-right-arrow-alt contact__button-icon"></i>
+              </a>
+            </div>
+
+            <div class="contact__card">
+              <i class="bx bx-mail-send contact__card--icon"></i>
+              <h3 class="contact__card-title">Email</h3>
+              <span class="contact__card-data">your.email@example.com</span>
+
+              <a href="mailto:your.email@example.com" target="_blank" class="contact__button">
+                Write me <i class="bx bx-right-arrow-alt contact__button-icon"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- FORM  -->
+        <div class="contact__content">
+          <h3 class="contact__title">Tell me about your project</h3>
+          <form onsubmit="handleSubmit(event)" id="submit-form" action="" class="contact__form" method="POST">
+            <div class="contact__form-div">
+              <label for="" class="contact__form-tag">Name</label>
+              <input autocomplete="off" type="text" id="name" onkeyup="validate();" placeholder="Your name"
+                class="contact__form-input" name="name">
+              <span class="nameIndicator"></span>
+              <span class="name-text"></span>
+            </div>
+
+            <div class="contact__form-div">
+              <label for="" class="contact__form-tag">Mail</label>
+              <input autocomplete="off" id="email" onkeyup="validate();" name="email" type="text" placeholder="Your email"
+                class="contact__form-input">
+              <span class="indicator"></span>
+              <span class="indicator-text"></span>
+            </div>
+
+            <div class="contact__form-div contact__form-area">
+              <label for="" class="contact__form-tag">Project Details</label>
+              <textarea onkeyup="validate();" name="message" id="message" cols="30" rows="10"
+                placeholder="Describe your project needs" class="contact__form-input"></textarea>
+              <span class="messageIndicator"></span>
+              <span class="message-text"></span>
+            </div>
+
+            <button type="submit" onclick="handleSubmit(event)" id="send" class="button">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!--=============== FOOTER ===============-->
+  <footer class="footer">
+    <div class="footer__container container">
+      <h1 class="footer__title">Design Portfolio</h1>
+
+      <ul class="footer__list">
+        <li>
+          <a href="#about" class="footer__link">About</a>
+        </li>
+        <li>
+          <a href="#portfolio" class="footer__link">Portfolio</a>
+        </li>
+        <li>
+          <a href="#contact" class="footer__link">Contact</a>
+        </li>
+      </ul>
+
+      <ul class="footer__social">
+        <a href="#" target="_blank" class="footer__social-link">
+          <i class="bx bxl-behance"></i>
+        </a>
+        <a href="#" target="_blank" class="footer__social-link">
+          <i class="bx bxl-dribbble"></i>
+        </a>
+        <a href="#" target="_blank" class="footer__social-link">
+          <i class="bx bxl-instagram-alt"></i>
+        </a>
+        <a href="#" target="_blank" class="footer__social-link">
+          <i class="bx bxl-linkedin"></i>
+        </a>
+      </ul>
+
+      <span class="footer__copy">
+        &#169; [Your Name]. All rights reserved
+      </span>
     </div>
-  </section>
-
-  <section class="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I craft visual stories with purpose. From logos to layouts, I turn ideas into captivating graphics.</p>
-  </section>
-
-  <section class="skills" data-aos="fade-up">
-    <h2>Skills</h2>
-    <ul>
-      <li>Photoshop</li>
-      <li>Illustrator</li>
-      <li>Figma</li>
-      <li>Branding</li>
-      <li>Print Design</li>
-    </ul>
-  </section>
-
-  <section class="contact" data-aos="fade-up">
-    <h2>Contact Me</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Alet Jacob. All rights reserved.</p>
   </footer>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>AOS.init();</script>
+  <!--=============== SCROLLREVEAL ===============-->
+  <script src="assets/js/scrollreveal.min.js"></script>
+
+  <!--=============== SWIPER JS ===============-->
+  <script src="assets/js/swiper-bundle.min.js"></script>
+
+  <!--=============== MIXITUP FILTER ===============-->
+  <script src="assets/js/mixitup.min.js"></script>
+
+  <!--=============== MAIN JS ===============-->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Form Validation JS -->
+  <script>
+    function validate() {
+      const form = document.getElementById("submit-form");
+      const email = document.getElementById("email").value;
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+      const send = document.getElementById("send");
+      const emailText = document.querySelector(".indicator-text");
+      const messageText = document.querySelector(".message-text");
+      const nameText = document.querySelector(".name-text");
+      const response = {
+        email: false,
+        name: false,
+        message: false
+      }
+      const pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/
+      if (email.match(pattern)) {
+        form.classList.add('valid');
+        form.classList.remove('invalid');
+        emailText.innerHTML = ""
+        send.addEventListener("click", function (e) {
+          emailText.innerHTML = ""
+        })
+        response.email = true;
+
+      } else {
+        form.classList.add('invalid');
+        form.classList.remove('valid');
+        send.addEventListener("click", function (e) {
+          e.preventDefault();
+          emailText.innerHTML = "Enter Valid Email"
+        })
+        response.email = false;
+
+      }
+      if (email == "") {
+        form.classList.add('invalid');
+        form.classList.remove('valid');
+        response.email = false;
+      }
+      if (name.match(/[0-9]/)||name=="") {
+        form.classList.add('nameInvalid');
+        form.classList.remove('nameValid');
+        send.addEventListener("click",function(e){
+          e.preventDefault();
+          nameText.innerHTML = "Name cannot be empty!"
+        })
+        response.name = false;
+
+      } else {
+        form.classList.add('nameValid');
+        form.classList.remove('nameInvalid');
+        nameText.innerHTML = ""
+        send.addEventListener("click", function (e) {
+          nameText.innerHTML = ""
+        })
+
+        response.name = true;
+
+      }
+      if (message.length < 5) {
+        form.classList.add('messageInvalid');
+        form.classList.remove('messageValid');
+        send.addEventListener("click", function (e) {
+          e.preventDefault();
+          messageText.innerHTML = "Messsage cannot be empty!"
+
+        })
+        response.message = false;
+
+      } else {
+        form.classList.add('messageValid');
+        form.classList.remove('messageInvalid');
+        messageText.innerHTML = ""
+        send.addEventListener("click", function (e) {
+          messageText.innerHTML = ""
+
+        })
+
+        response.message = true;
+      }
+      if (response.email && response.message && response.name) {
+
+        return true;
+      } else {
+
+        return false;
+      }
+    }
+  </script>
+
+  <!-- Form Submission JS -->
+  <script>
+    async function handleSubmit(event) {
+      const isValidated = await validate();
+      console.log(isValidated);
+      if (isValidated) {
+
+        event.preventDefault()
+
+        $.ajax({
+          url: "https://script.google.com/macros/s/YOUR_SCRIPT_URL/exec",
+          data: $("#submit-form").serialize(),
+          method: "post",
+          success: function (response) {
+            alert("Form submitted successfully")
+            window.location.reload()
+          },
+          error: function (err) {
+            alert("Something Error")
+
+          }
+        })
+
+      } else {
+        event.preventDefault();
+      }
+    }
+  </script>
 </body>
 </html>
