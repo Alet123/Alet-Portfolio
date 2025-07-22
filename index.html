@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,7 +11,16 @@
 </head>
 <body>
 
-  <header class="hero" data-aos="fade-down">
+  <!-- Dark Mode Toggle -->
+  <div class="toggle-container">
+    <label class="switch">
+      <input type="checkbox" id="themeToggle" />
+      <span class="slider round"></span>
+    </label>
+  </div>
+
+  <!-- Parallax Hero -->
+  <header class="hero glass parallax" data-aos="fade-down">
     <h1>Alet Jacob</h1>
     <p>Creative Graphic Designer</p>
     <div class="social-links">
@@ -29,7 +38,7 @@
       <img src="assets/work4.jpg" alt="Project 4" />
     </div>
 
-    <div class="flipbook-showcase" data-aos="zoom-in">
+    <div class="flipbook-showcase glass" data-aos="zoom-in">
       <h3>Premium Flipbook Album</h3>
       <p>Browse my curated design collection in an interactive flipbook experience:</p>
       <a class="flipbook-button" href="https://heyzine.com/flip-book/94fff626e5.html" target="_blank">
@@ -38,7 +47,7 @@
     </div>
   </section>
 
-  <section class="about" data-aos="fade-up">
+  <section class="about glass" data-aos="fade-up">
     <h2>About Me</h2>
     <p>I craft visual stories with purpose. From logos to layouts, I turn ideas into captivating graphics. With a deep understanding of visual hierarchy, color theory, and brand identity, I help clients bring their vision to life with clarity and impact.</p>
   </section>
@@ -57,7 +66,7 @@
     </ul>
   </section>
 
-  <section class="contact" data-aos="fade-up">
+  <section class="contact glass" data-aos="fade-up" id="contact">
     <h2>Contact Me</h2>
     <form>
       <input type="text" placeholder="Your Name" required />
@@ -71,8 +80,12 @@
     <p>© 2025 Alet Jacob. All rights reserved.</p>
   </footer>
 
+  <!-- Floating Contact Button -->
+  <a href="#contact" class="floating-contact">✉️ Contact</a>
+
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>AOS.init({ duration: 1000 });</script>
 </body>
 </html>
+
 
