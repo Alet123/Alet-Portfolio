@@ -1,185 +1,120 @@
-/* General Styles */
-body {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  background: #111;
-  color: #f0f0f0;
-  line-height: 1.6;
+/* Theme Toggle Styles */
+.toggle-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
-h1, h2, h3 {
-  color: #ffffff;
-}
-
-a {
-  color: #ff6f61;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 4rem 2rem;
-  background: linear-gradient(to right, #1f1f1f, #292929);
-}
-
-.hero h1 {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
-  font-weight: 700;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  color: #ccc;
-}
-
-.social-links a {
-  margin: 0 1rem;
-  font-weight: 500;
-}
-
-/* Portfolio */
-.portfolio {
-  padding: 4rem 2rem;
-  background: #181818;
-  text-align: center;
-}
-
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
-}
-
-/* Flipbook Premium Showcase */
-.flipbook-showcase {
-  margin-top: 3rem;
-  padding: 2rem;
-  background: linear-gradient(to right, #1f1f1f, #292929);
-  border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  text-align: center;
-  color: #fff;
-}
-
-.flipbook-showcase h3 {
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.flipbook-showcase p {
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-  color: #ccc;
-}
-
-.flipbook-button {
+.switch {
+  position: relative;
   display: inline-block;
-  padding: 0.8rem 1.6rem;
-  font-size: 1rem;
-  font-weight: 500;
-  background: #ff6f61;
-  color: #fff;
-  border-radius: 30px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(255, 111, 97, 0.3);
+  width: 48px;
+  height: 24px;
 }
 
-.flipbook-button:hover {
-  background: #ff3b2e;
-  box-shadow: 0 6px 20px rgba(255, 59, 46, 0.5);
-  transform: translateY(-2px);
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
 
-/* About */
-.about {
-  padding: 4rem 2rem;
-  background: #121212;
-}
-
-/* Skills */
-.skills {
-  padding: 4rem 2rem;
-  background: #1a1a1a;
-}
-
-.skills ul {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-}
-
-.skills li {
-  background: #2a2a2a;
-  padding: 0.75rem 1.5rem;
-  border-radius: 20px;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* Contact */
-.contact {
-  padding: 4rem 2rem;
-  background: #0f0f0f;
-  text-align: center;
-}
-
-.contact form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 500px;
-  margin: auto;
-}
-
-.contact input,
-.contact textarea {
-  padding: 1rem;
-  border: none;
-  border-radius: 8px;
-  background: #1e1e1e;
-  color: #fff;
-  resize: none;
-}
-
-.contact button {
-  background: #ff6f61;
-  color: #fff;
-  padding: 0.8rem;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
+.slider {
+  position: absolute;
   cursor: pointer;
-  transition: background 0.3s ease;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 24px;
 }
 
-.contact button:hover {
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #ff6f61;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Floating Contact Button */
+.floating-contact {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff6f61;
+  color: #fff;
+  padding: 0.8rem 1.2rem;
+  border-radius: 40px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+  transition: background 0.3s ease, transform 0.3s ease;
+  z-index: 999;
+}
+
+.floating-contact:hover {
   background: #ff3b2e;
+  transform: scale(1.05);
 }
 
-/* Footer */
-footer {
-  padding: 2rem;
-  text-align: center;
-  background: #101010;
-  color: #666;
-  font-size: 0.9rem;
+/* Parallax Background */
+.parallax {
+  background: url('assets/background.jpg') center / cover fixed no-repeat;
+  padding: 6rem 2rem;
+  color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Light Theme (applied via JS toggle) */
+:root[data-theme='light'] {
+  --bg: #ffffff;
+  --text: #121212;
+  --card: #f1f1f1;
+  --accent: #ff6f61;
+  --hover: #ff3b2e;
+}
+
+:root[data-theme='dark'] {
+  --bg: #0a0a0a;
+  --text: #f1f1f1;
+  --card: rgba(255, 255, 255, 0.06);
+  --accent: #ff6f61;
+  --hover: #ff3b2e;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.glass,
+.contact,
+.about {
+  background: var(--card);
+  color: var(--text);
+}
+
+.flipbook-button,
+.contact button {
+  background: var(--accent);
+}
+
+.flipbook-button:hover,
+.contact button:hover {
+  background: var(--hover);
 }
 
