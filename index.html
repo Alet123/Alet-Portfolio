@@ -1,99 +1,134 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Alet Jacob – Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alet Jacob – Graphic Designer</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <div class="toggle-container">
+      <label class="switch">
+        <input type="checkbox" id="themeToggle" />
+        <span class="slider round"></span>
+      </label>
+    </div>
 
-  <!-- Dark Mode Toggle -->
-  <div class="theme-toggle">
-    <input type="checkbox" id="themeToggle">
-    <label for="themeToggle">🌙 / ☀️</label>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <!-- Profile Image -->
-      <div class="profile-image">
-        <img src="assets/profile1.jpg" alt="Alet Jacob" />
-      </div>
-
+    <header class="hero glass parallax" data-aos="fade-down">
+      <img src="assets/profile1.jpg" alt="Alet Jacob" class="profile-img" />
       <h1>Alet Jacob</h1>
-      <p>Creative Graphic Designer focused on visual storytelling</p>
-      <div class="social">
-        <a href="https://behance.net/yourusername" target="_blank">Behance</a>
+      <p>Creative Graphic Designer</p>
+      <div class="social-links">
+        <a href="https://www.behance.net/yourusername" target="_blank">Behance</a>
         <a href="https://dribbble.com/yourusername" target="_blank">Dribbble</a>
       </div>
+    </header>
+
+    <section class="portfolio" data-aos="fade-up">
+      <h2>My Work</h2>
+      <div class="flipbook-showcase glass" data-aos="zoom-in">
+        <h3>Premium Flipbook Album</h3>
+        <p>Browse my curated design collection:</p>
+        <a class="flipbook-button" href="https://heyzine.com/flip-book/94fff626e5.html" target="_blank">
+          📖 View Flipbook
+        </a>
+      </div>
+
+      <div class="flipbook-showcase glass" data-aos="zoom-in">
+        <h3>Logo Works</h3>
+        <p>Explore my logo designs:</p>
+        <a class="flipbook-button" href="https://heyzine.com/flip-book/9b0951e342.html" target="_blank">
+          📖 View Logo Flipbook
+        </a>
+      </div>
+
+      <div class="flipbook-showcase glass" data-aos="zoom-in">
+        <h3>Other Photoshop Works</h3>
+        <p>Check out my other creative work:</p>
+        <a class="flipbook-button" href="https://heyzine.com/flip-book/d995853fce.html" target="_blank">
+          📖 View Photoshop Flipbook
+        </a>
+      </div>
+    </section>
+
+    <section class="about glass" data-aos="fade-up">
+      <h2>About Me</h2>
+      <p>I craft visual stories with purpose. From logos to layouts, I turn ideas into captivating graphics. With a deep understanding of visual hierarchy, color theory, and brand identity, I help clients bring their vision to life with clarity and impact.</p>
+    </section>
+
+    <section class="skills" data-aos="fade-up">
+      <h2>Skills</h2>
+      <ul>
+        <li>Photoshop</li>
+        <li>Illustrator</li>
+        <li>Figma</li>
+        <li>InDesign</li>
+        <li>UI/UX</li>
+        <li>Branding</li>
+        <li>Print Design</li>
+        <li>Motion Graphics</li>
+        <li>Web Designing (Python, Django)</li>
+        <li>Colour Grading</li>
+      </ul>
+    </section>
+
+    <section class="education section" id="education">
+      <span class="section__subtitle">My Educational Journey</span>
+      <h2 class="section__title">Education Details</h2>
+
+      <div class="education__container container grid">
+        <div class="education__card">
+          <h3 class="education__title">Bachelor of Computer Applications</h3>
+          <p class="education__institution">St George's College Aruvithura</p>
+          <p class="education__year">2018 - 2021</p>
+        </div>
+
+        <div class="education__card">
+          <h3 class="education__title">Higher Secondary Education | Science</h3>
+          <p class="education__institution">St Mary's Higher Secondary School</p>
+          <p class="education__year">2017 - 2018</p>
+        </div>
+
+        <div class="education__card">
+          <h3 class="education__title">Secondary School</h3>
+          <p class="education__institution">St Paul's Higher Secondary School</p>
+          <p class="education__year">2015 - 2016</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact glass" data-aos="fade-up" id="contact">
+      <h2>Contact Me</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>© 2025 Alet Jacob. All rights reserved.</p>
+    </footer>
+
+    <a href="#contact" class="floating-contact">✉️ Contact</a>
+
+    <div class="theme-switchers">
+      <i class="bx bx-brush change__color change__purple" onclick="set_color_purple()"></i>
+      <i class="bx bx-brush change__color change__pink" onclick="set_color_pink()"></i>
+      <i class="bx bx-brush change__color change__orange" onclick="set_color_orange()"></i>
+      <i class="bx bx-brush change__color change__blue" onclick="set_color_blue()"></i>
+      <i class="bx bx-brush change__color change__bluegray" onclick="set_color_bluegray()"></i>
     </div>
-  </section>
 
-  <!-- Portfolio Section -->
-  <section class="portfolio">
-    <h2>Selected Work</h2>
-
-    <div class="grid">
-      <img src="assets/work1.jpg" alt="Work 1">
-      <img src="assets/work2.jpg" alt="Work 2">
-      <img src="assets/work3.jpg" alt="Work 3">
-      <img src="assets/work4.jpg" alt="Work 4">
-    </div>
-
-    <!-- Flipbook 1 -->
-    <div class="flipbook">
-      <h3>Premium Flipbook Album</h3>
-      <a href="https://heyzine.com/flip-book/94fff626e5.html" target="_blank">📖 View Flipbook</a>
-    </div>
-
-    <!-- Flipbook 2: Logo Works -->
-    <div class="flipbook logo-flipbook">
-      <h3>Logo Works</h3>
-      <p>A curated set of unique logo designs created for real clients and mock brands.</p>
-      <a href="https://heyzine.com/flip-book/9b0951e342.html" target="_blank">🖋️ View Logo Works Flipbook</a>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Me</h2>
-    <p>Hi! I’m Alet. I specialize in visual design that communicates powerfully. With expertise in color, layout, and typography, I create stunning, strategic designs that tell your story.</p>
-  </section>
-
-  <!-- Skills -->
-  <section class="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Photoshop</li>
-      <li>Illustrator</li>
-      <li>Figma</li>
-      <li>InDesign</li>
-      <li>Branding</li>
-      <li>UI/UX</li>
-    </ul>
-  </section>
-
-  <!-- Contact -->
-  <section class="contact" id="contact">
-    <h2>Let’s Talk</h2>
-    <form>
-      <input type="text" placeholder="Name" required>
-      <input type="email" placeholder="Email" required>
-      <textarea placeholder="Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>© 2025 Alet Jacob</p>
-  </footer>
-
-  <!-- Floating Contact Button -->
-  <a href="#contact" class="contact-float">✉️</a>
-
-</body>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init({ duration: 1000 });</script>
+  </body>
 </html>
+
+<!-- Add style.css and script.js as separate files in your project -->
