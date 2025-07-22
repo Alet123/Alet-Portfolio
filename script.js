@@ -1,10 +1,9 @@
-// Theme toggle
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("themeToggle");
   const html = document.documentElement;
 
-  // Set initial theme
-  if (localStorage.getItem("theme") === "light") {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "light") {
     html.setAttribute("data-theme", "light");
     toggle.checked = true;
   }
