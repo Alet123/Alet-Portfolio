@@ -1,4 +1,4 @@
-// === 🌗 Theme Toggle ===
+// === 🌗 THEME TOGGLE ===
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
@@ -9,7 +9,7 @@ if (savedTheme) {
   if (savedTheme === "light") themeToggle.checked = true;
 }
 
-// Toggle light/dark mode
+// Toggle between light/dark mode
 themeToggle?.addEventListener("change", () => {
   const newTheme = themeToggle.checked ? "light" : "dark";
   body.classList.add("theme-transition");
@@ -19,7 +19,7 @@ themeToggle?.addEventListener("change", () => {
   setTimeout(() => body.classList.remove("theme-transition"), 600);
 });
 
-// === 🎨 Accent Colors ===
+// === 🎨 ACCENT COLORS ===
 const savedAccent = localStorage.getItem("portfolio-accent");
 if (savedAccent) {
   document.documentElement.style.setProperty("--accent", savedAccent);
@@ -33,13 +33,23 @@ function setAccent(color) {
 }
 
 // Available accent themes
-function set_color_purple() { setAccent("#a259ff"); }
-function set_color_pink() { setAccent("#ff61d9"); }
-function set_color_orange() { setAccent("#f97316"); }
-function set_color_blue() { setAccent("#2196f3"); }
-function set_color_bluegray() { setAccent("#546e7a"); }
+function set_color_purple() {
+  setAccent("#a259ff");
+}
+function set_color_pink() {
+  setAccent("#ff61d9");
+}
+function set_color_orange() {
+  setAccent("#f97316");
+}
+function set_color_blue() {
+  setAccent("#2196f3");
+}
+function set_color_bluegray() {
+  setAccent("#546e7a");
+}
 
-// === ✨ Accent Pulse Animation ===
+// === ✨ ACCENT PULSE ANIMATION ===
 function accentPulse() {
   const flash = document.createElement("div");
   flash.className = "accent-flash";
@@ -47,7 +57,7 @@ function accentPulse() {
   setTimeout(() => flash.remove(), 600);
 }
 
-// Inject accent animation style dynamically
+// Inject pulse style
 const style = document.createElement("style");
 style.textContent = `
   body.theme-transition {
@@ -71,7 +81,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// === ⌨️ Typing Animation for Hero Intro ===
+// === ⌨️ HERO TYPING ANIMATION ===
 document.addEventListener("DOMContentLoaded", () => {
   const heroIntro = document.querySelector(".hero-intro");
   if (!heroIntro) return;
@@ -91,3 +101,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setTimeout(typeLetter, 300);
 });
+
+// === 💬 SMOOTH SCROLL OFFSET FIX ===
+// Prevent blank sections when clicking anchor links (#contact, etc.)
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", (e) => {
+    const target = document.querySelector(anchor.getAttribute("href"));
+    if (target) {
+      e.preventDefault();
+      const top = target.getBoundingClientRect().top + window.pageYOffset - 50;
+      window.scrollTo({ top, behavior: "smooth" });
+    }
+  });
+});
+
+// === 🪄 AOS INIT (Backup) ===
+// Ensures AOS re-initializes after theme or color change
+if (window.AOS) {
+  AOS.init({ duration: 1000, once: true });
+}
