@@ -20,6 +20,21 @@ themeToggle?.addEventListener("change", () => {
   if (window.AOS) AOS.refresh();
 });
 
+// === 🎨 Auto Name Color Cycle ===
+const nameElement = document.querySelector(".gradient-text");
+if (nameElement) {
+  const colors = ["#ff6f61", "#f97316", "#ff61d9", "#4a90e2", "#a259ff"];
+  let i = 0;
+  setInterval(() => {
+    nameElement.style.transition = "color 1s ease";
+    nameElement.style.color = colors[i];
+    nameElement.style.webkitTextFillColor = colors[i];
+    nameElement.style.background = "none";
+    i = (i + 1) % colors.length;
+  }, 2000);
+}
+
+
 // === 🎨 Accent Colors ===
 const savedAccent = localStorage.getItem("portfolio-accent");
 if (savedAccent) {
