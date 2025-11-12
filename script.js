@@ -17,6 +17,7 @@ themeToggle?.addEventListener("change", () => {
   localStorage.setItem("portfolio-theme", newTheme);
   accentPulse();
   setTimeout(() => body.classList.remove("theme-transition"), 600);
+  if (window.AOS) AOS.refresh();
 });
 
 // === 🎨 Accent Colors ===
@@ -25,11 +26,11 @@ if (savedAccent) {
   document.documentElement.style.setProperty("--accent", savedAccent);
 }
 
-// Set accent color dynamically
 function setAccent(color) {
   document.documentElement.style.setProperty("--accent", color);
   localStorage.setItem("portfolio-accent", color);
   accentPulse();
+  if (window.AOS) AOS.refresh();
 }
 
 // Available accent themes
@@ -44,7 +45,7 @@ function accentPulse() {
   const flash = document.createElement("div");
   flash.className = "accent-flash";
   document.body.appendChild(flash);
-  setTimeout(() => flash.remove(), 600);
+  setTimeout(() => flash.remove(), 700);
 }
 
 // Inject accent animation style dynamically
@@ -81,13 +82,60 @@ document.addEventListener("DOMContentLoaded", () => {
   heroIntro.style.opacity = "1";
 
   let index = 0;
+  const speed = window.innerWidth < 600 ? 100 : 80;
+
   function typeLetter() {
     if (index < text.length) {
       heroIntro.textContent += text[index];
       index++;
-      setTimeout(typeLetter, 80);
+      setTimeout(typeLetter, speed);
     }
   }
 
   setTimeout(typeLetter, 300);
+});
+
+// === 🌈 Animate Brush Icons on Click ===
+document.querySelectorAll(".theme-switchers .bx").forEach((icon) => {
+  icon.addEventListener("click", () => {
+    icon.style.transform = "scale(1.3)";
+    setTimeout(() => (icon.style.transform = "scale(1)"), 200);
+  });
+});
+
+// === 🌟 Scroll Reveal Animation for Sections (Intersection Observer) ===
+const revealElements = document.querySelectorAll(
+  ".education__card, .experience-card, .skill-card, .flipbook-card"
+);
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "translateY(0)";
+        observer.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.15,
+  }
+);
+
+revealElements.forEach((el) => observer.observe(el));
+
+// === 🧭 Smooth Scroll for Anchor Links ===
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href").substring(1);
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      e.preventDefault();
+      window.scrollTo({
+        top: targetElement.offsetTop - 50,
+        behavior: "smooth",
+      });
+    }
+  });
 });
