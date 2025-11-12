@@ -79,30 +79,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* 👋 Hero Intro Text */
-.hero-intro {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: var(--accent);
-  letter-spacing: 1px;
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-  opacity: 0.9;
-  animation: fadeInUp 1s ease forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    transform: translateY(10px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-
 /* 🧑‍🎨 Hero Section */
 .hero {
   min-height: 100vh;
@@ -115,6 +91,30 @@ input:checked + .slider:before {
   padding: 2rem;
 }
 
+/* 👋 Hero Intro Text */
+.hero-intro {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  animation: fadeInDown 1s ease;
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* 👤 Profile Image */
 .profile-img {
   width: 160px;
   height: 160px;
@@ -136,12 +136,16 @@ input:checked + .slider:before {
   }
 }
 
+/* ✨ Gradient Text */
 .gradient-text {
   font-size: 3rem;
   background: linear-gradient(90deg, #ff6f61, #f97316, #ff61d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-top: 1rem;
 }
+
 .subtitle {
   color: #aaa;
   margin-bottom: 1.5rem;
@@ -236,7 +240,7 @@ input:checked + .slider:before {
   transform: scale(1.05);
 }
 
-/* 🧍 About */
+/* 💡 About */
 .about {
   padding: 3rem 2rem;
   text-align: center;
