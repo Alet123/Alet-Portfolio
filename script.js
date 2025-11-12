@@ -12,9 +12,11 @@ if (savedTheme) {
 // Toggle light/dark mode
 themeToggle?.addEventListener("change", () => {
   const newTheme = themeToggle.checked ? "light" : "dark";
+  body.classList.add("theme-transition");
   body.setAttribute("data-theme", newTheme);
   localStorage.setItem("portfolio-theme", newTheme);
   accentPulse();
+  setTimeout(() => body.classList.remove("theme-transition"), 600);
 });
 
 // === 🎨 Accent Colors ===
@@ -48,6 +50,10 @@ function accentPulse() {
 // Inject accent animation style dynamically
 const style = document.createElement("style");
 style.textContent = `
+  body.theme-transition {
+    transition: background 0.6s ease, color 0.6s ease;
+  }
+
   .accent-flash {
     position: fixed;
     inset: 0;
@@ -64,3 +70,24 @@ style.textContent = `
   }
 `;
 document.head.appendChild(style);
+
+// === ⌨️ Typing Animation for Hero Intro ===
+document.addEventListener("DOMContentLoaded", () => {
+  const heroIntro = document.querySelector(".hero-intro");
+  if (!heroIntro) return;
+
+  const text = heroIntro.textContent.trim();
+  heroIntro.textContent = "";
+  heroIntro.style.opacity = "1";
+
+  let index = 0;
+  function typeLetter() {
+    if (index < text.length) {
+      heroIntro.textContent += text[index];
+      index++;
+      setTimeout(typeLetter, 80);
+    }
+  }
+
+  setTimeout(typeLetter, 300);
+});
