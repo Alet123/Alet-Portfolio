@@ -79,6 +79,30 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* 👋 Hero Intro Text */
+.hero-intro {
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: 1px;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  opacity: 0.9;
+  animation: fadeInUp 1s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
 /* 🧑‍🎨 Hero Section */
 .hero {
   min-height: 100vh;
