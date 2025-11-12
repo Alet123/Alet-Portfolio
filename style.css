@@ -1,8 +1,10 @@
-/* =========================================
-   Modern Portfolio Style – Alet Jacob
-   ========================================= */
+/* Modern Portfolio Style – Alet Jacob */
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   --bg: #0d0d0d;
@@ -13,10 +15,10 @@
 }
 
 [data-theme="light"] {
-  --bg: #f9f9f9;
+  --bg: #fafafa;
   --text: #111;
   --accent: #ff6f61;
-  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(0, 0, 0, 0.1);
 }
 
@@ -24,103 +26,61 @@ body {
   font-family: 'Outfit', sans-serif;
   background: var(--bg);
   color: var(--text);
-  transition: background 0.4s ease, color 0.4s ease;
+  transition: background 0.4s, color 0.4s;
   scroll-behavior: smooth;
-  overflow-x: hidden;
 }
-
-/* Theme Toggle */
-.toggle-container {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 999;
-}
-.switch { position: relative; display: inline-block; width: 50px; height: 24px; }
-.switch input { opacity: 0; width: 0; height: 0; }
-.slider {
-  position: absolute; inset: 0;
-  background-color: #444; border-radius: 24px;
-  transition: 0.4s;
-}
-.slider:before {
-  content: "";
-  position: absolute;
-  height: 16px; width: 16px;
-  left: 4px; bottom: 4px;
-  background-color: #fff; border-radius: 50%;
-  transition: 0.4s;
-}
-input:checked + .slider { background-color: var(--accent); }
-input:checked + .slider:before { transform: translateX(26px); }
 
 /* Hero Section */
 .hero {
   min-height: 100vh;
-  display: flex; flex-direction: column;
-  justify-content: center; align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  background: radial-gradient(circle at 20% 30%, #1a1a1a, #000);
+  overflow: hidden;
   position: relative;
-  background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
 }
 .hero::after {
   content: "";
-  position: absolute; width: 450px; height: 450px;
-  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+  position: absolute;
   top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
   filter: blur(120px); opacity: 0.25;
 }
 .profile-img {
   width: 160px; height: 160px;
   border-radius: 50%;
-  object-fit: cover;
   border: 4px solid var(--accent);
-  box-shadow: 0 0 25px rgba(0,0,0,0.5);
-  animation: pulse-border 2.5s infinite;
+  object-fit: cover;
+  animation: pulse-border 3s infinite;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
 }
 @keyframes pulse-border {
   0% { box-shadow: 0 0 0 0 var(--accent); }
   70% { box-shadow: 0 0 0 20px rgba(255,111,97,0); }
   100% { box-shadow: 0 0 0 0 rgba(255,111,97,0); }
 }
-.hero h1 {
-  margin-top: 1rem;
+.gradient-text {
   font-size: 3rem;
   background: linear-gradient(90deg, #ff6f61, #f97316, #ff61d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  margin-top: 1rem;
 }
-.subtitle { font-size: 1.2rem; color: #aaa; }
-.social-icons {
-  margin-top: 1rem; display: flex; gap: 1rem;
-}
+.subtitle { font-size: 1.1rem; color: #bbb; }
+
+.social-icons { margin-top: 1rem; display: flex; gap: 1rem; }
 .social-link {
-  font-size: 1.7rem;
   color: var(--accent);
+  font-size: 1.7rem;
   transition: transform 0.3s, color 0.3s;
 }
-.social-link:hover {
-  transform: scale(1.2);
-  color: #fff;
-}
+.social-link:hover { color: #fff; transform: scale(1.2); }
 
-/* Section Titles */
-.section-title {
-  text-align: center;
-  font-size: 2.2rem;
-  margin: 3rem 0 1.2rem;
-  position: relative;
-}
-.section-title::after {
-  content: "";
-  width: 60px; height: 3px;
-  background: var(--accent);
-  display: block;
-  margin: 0.6rem auto;
-  border-radius: 6px;
-}
-
-/* Glass Panels */
+/* Shared Glass Effect */
 .glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -129,28 +89,45 @@ input:checked + .slider:before { transform: translateX(26px); }
   box-shadow: 0 8px 25px rgba(0,0,0,0.25);
 }
 
+/* Section Titles */
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin: 3rem 0 1.2rem;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px; height: 3px;
+  background: var(--accent);
+  margin: 0.6rem auto;
+  border-radius: 5px;
+}
+
 /* Portfolio */
-.portfolio { padding: 2rem; text-align: center; }
+.portfolio { padding: 2rem; }
 .portfolio-grid {
-  display: flex; flex-direction: column;
-  gap: 2rem; max-width: 800px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 .flipbook-card {
   padding: 2rem;
-  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+  transition: 0.3s;
 }
-.flipbook-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-}
+.flipbook-card:hover { transform: translateY(-5px); }
 .flipbook-button {
   margin-top: 1rem;
+  display: inline-block;
   background: var(--accent);
-  color: white;
+  color: #fff;
   padding: 0.7rem 1.5rem;
   border-radius: 30px;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   transition: 0.3s;
 }
 .flipbook-button:hover { transform: scale(1.05); }
@@ -159,11 +136,11 @@ input:checked + .slider:before { transform: translateX(26px); }
 .about {
   padding: 3rem 2rem;
   text-align: center;
-  line-height: 1.8;
   max-width: 700px;
   margin: 0 auto;
+  line-height: 1.8;
 }
-.about .highlight { color: var(--accent); font-weight: 600; }
+.highlight { color: var(--accent); font-weight: 600; }
 
 /* Skills */
 .skills {
@@ -172,13 +149,12 @@ input:checked + .slider:before { transform: translateX(26px); }
 .skills-list {
   list-style: none;
   display: flex; flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
+  justify-content: center; gap: 1rem;
 }
 .skills-list li {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  padding: 0.6rem 1.5rem;
+  padding: 0.6rem 1.4rem;
   border-radius: 30px;
   transition: 0.3s;
 }
@@ -194,11 +170,15 @@ input:checked + .slider:before { transform: translateX(26px); }
   color: #fff;
 }
 .education__container {
-  display: flex; flex-direction: column;
-  gap: 2rem; max-width: 900px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
 }
 .education__card {
   padding: 2rem;
+  text-align: center;
 }
 
 /* Contact */
@@ -208,8 +188,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 .contact-form {
   display: flex; flex-direction: column;
-  gap: 1rem; max-width: 600px;
-  margin: 2rem auto;
+  gap: 1rem;
+  max-width: 600px; margin: 2rem auto;
 }
 input, textarea {
   padding: 1rem;
@@ -223,8 +203,8 @@ input, textarea {
 button {
   background: var(--accent);
   color: #fff;
-  padding: 1rem;
   border: none;
+  padding: 1rem;
   border-radius: 8px;
   cursor: pointer;
   transition: 0.3s;
@@ -251,11 +231,11 @@ button:hover { background: #ff5b4e; }
   font-size: 1.5rem;
   text-decoration: none;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: transform 0.3s;
+  transition: 0.3s;
 }
 .floating-contact:hover { transform: scale(1.1); }
 
-/* Color Brushes */
+/* Theme Color Switchers */
 .theme-switchers {
   position: fixed;
   bottom: 1rem; left: 1rem;
@@ -263,20 +243,21 @@ button:hover { background: #ff5b4e; }
 }
 .theme-switchers .bx {
   font-size: 1.6rem;
-  cursor: pointer;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  padding: 0.5rem;
   border-radius: 50%;
+  padding: 0.5rem;
+  cursor: pointer;
   color: var(--accent);
   transition: 0.3s;
 }
 .theme-switchers .bx:hover {
-  transform: scale(1.15);
   background: var(--accent);
   color: #fff;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
   .hero h1 { font-size: 2.4rem; }
+  .portfolio-grid { grid-template-columns: 1fr; }
 }
