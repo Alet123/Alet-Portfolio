@@ -1,15 +1,15 @@
-// === Theme Toggle ===
+// === 🌗 Theme Toggle ===
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
-// Load saved theme
+// Load saved theme from localStorage
 const savedTheme = localStorage.getItem("portfolio-theme");
 if (savedTheme) {
   body.setAttribute("data-theme", savedTheme);
   if (savedTheme === "light") themeToggle.checked = true;
 }
 
-// Toggle event
+// Toggle light/dark mode
 themeToggle?.addEventListener("change", () => {
   const newTheme = themeToggle.checked ? "light" : "dark";
   body.setAttribute("data-theme", newTheme);
@@ -17,24 +17,27 @@ themeToggle?.addEventListener("change", () => {
   accentPulse();
 });
 
-// === Accent Colors ===
+// === 🎨 Accent Colors ===
 const savedAccent = localStorage.getItem("portfolio-accent");
-if (savedAccent)
+if (savedAccent) {
   document.documentElement.style.setProperty("--accent", savedAccent);
+}
 
+// Set accent color dynamically
 function setAccent(color) {
   document.documentElement.style.setProperty("--accent", color);
   localStorage.setItem("portfolio-accent", color);
   accentPulse();
 }
 
+// Available accent themes
 function set_color_purple() { setAccent("#a259ff"); }
 function set_color_pink() { setAccent("#ff61d9"); }
 function set_color_orange() { setAccent("#f97316"); }
 function set_color_blue() { setAccent("#2196f3"); }
 function set_color_bluegray() { setAccent("#546e7a"); }
 
-// === Accent Flash Animation ===
+// === ✨ Accent Pulse Animation ===
 function accentPulse() {
   const flash = document.createElement("div");
   flash.className = "accent-flash";
@@ -42,16 +45,19 @@ function accentPulse() {
   setTimeout(() => flash.remove(), 600);
 }
 
+// Inject accent animation style dynamically
 const style = document.createElement("style");
 style.textContent = `
   .accent-flash {
-    position: fixed; inset: 0;
+    position: fixed;
+    inset: 0;
     background: var(--accent);
     opacity: 0.08;
     z-index: 9999;
     animation: accentFade 0.6s ease forwards;
     pointer-events: none;
   }
+
   @keyframes accentFade {
     from { opacity: 0.25; }
     to { opacity: 0; }
