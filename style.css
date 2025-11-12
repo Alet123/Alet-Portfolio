@@ -1,4 +1,4 @@
-/* 🎨 Alet Jacob Portfolio Styles */
+/* === 🎨 Base Reset === */
 * {
   margin: 0;
   padding: 0;
@@ -11,7 +11,6 @@
   --accent: #ff6f61;
   --glass-bg: rgba(255, 255, 255, 0.06);
   --glass-border: rgba(255, 255, 255, 0.15);
-  --muted: #aaa;
 }
 
 [data-theme="light"] {
@@ -20,20 +19,17 @@
   --accent: #ff6f61;
   --glass-bg: rgba(0, 0, 0, 0.05);
   --glass-border: rgba(0, 0, 0, 0.1);
-  --muted: #555;
 }
 
-/* General Layout */
 body {
   font-family: "Outfit", sans-serif;
   background: var(--bg);
   color: var(--text);
-  line-height: 1.7;
   transition: background 0.4s, color 0.4s;
-  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-/* 🌗 Theme Toggle */
+/* === 🌗 Toggle === */
 .toggle-container {
   position: fixed;
   top: 1rem;
@@ -77,7 +73,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* 🧑‍🎨 Hero Section */
+/* === 🧑‍🎨 Hero Section === */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -85,8 +81,8 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at 20% 20%, #1a1a1a, #000);
-  position: relative;
+  background: radial-gradient(circle at 30% 30%, #1a1a1a, #000);
+  padding: 4rem 1rem;
 }
 
 .hero-intro {
@@ -94,19 +90,19 @@ input:checked + .slider:before {
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--accent);
-  text-transform: uppercase;
   margin-bottom: 0.8rem;
-  animation: fadeInDown 1s ease;
+  opacity: 0.9;
+  text-transform: uppercase;
 }
 
 .profile-img {
-  width: 170px;
-  height: 170px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 6px solid var(--accent);
   object-fit: cover;
   animation: pulse-border 3s infinite;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 }
 
 @keyframes pulse-border {
@@ -122,20 +118,19 @@ input:checked + .slider:before {
 }
 
 .gradient-text {
-  font-size: 3rem;
+  font-size: 3.4rem;
   background: linear-gradient(90deg, #ff6f61, #f97316, #ff61d9);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .subtitle {
-  color: var(--muted);
-  margin-bottom: 1.5rem;
+  color: #aaa;
   font-size: 1.1rem;
+  margin-bottom: 1rem;
 }
 
-/* 🔗 Social Icons */
 .social-icons {
   display: flex;
   gap: 1.2rem;
@@ -146,28 +141,33 @@ input:checked + .slider:before {
   transition: 0.3s;
 }
 .social-icons a:hover {
-  color: #fff;
   transform: scale(1.2);
 }
+.bxl-instagram:hover {
+  color: #e1306c;
+}
+.bxl-whatsapp:hover {
+  color: #25d366;
+}
+.bx-envelope:hover {
+  color: #ff6f61;
+}
 
-/* 🌈 Sections */
+/* === Sections Shared Styles === */
 .section-title {
   text-align: center;
-  margin: 3rem 0 1rem;
   font-size: 2rem;
-  font-weight: 700;
+  margin: 3rem 0 1rem;
 }
 .section-title::after {
   content: "";
   display: block;
-  width: 70px;
+  width: 60px;
   height: 3px;
   background: var(--accent);
   margin: 0.5rem auto;
   border-radius: 5px;
 }
-
-/* 🧊 Glass Cards */
 .glass {
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
@@ -175,7 +175,7 @@ input:checked + .slider:before {
   border-radius: 16px;
 }
 
-/* 🖼️ Portfolio */
+/* === 🖼️ Portfolio === */
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -195,14 +195,17 @@ input:checked + .slider:before {
 .flipbook-button {
   background: var(--accent);
   color: #fff;
-  padding: 0.7rem 1.4rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 30px;
   text-decoration: none;
   display: inline-block;
   margin-top: 1rem;
 }
+.flipbook-button:hover {
+  background: #ff5b4e;
+}
 
-/* 💡 About */
+/* === 💡 About === */
 .about {
   padding: 3rem 2rem;
   text-align: center;
@@ -215,172 +218,143 @@ input:checked + .slider:before {
   font-weight: 600;
 }
 
-/* 🛠️ Skills Section */
-.section-decor svg {
-  width: 100%;
-  display: block;
-  margin-bottom: -3rem;
-}
-
+/* === 🛠️ Skills === */
 .skills {
   position: relative;
   overflow: hidden;
-  padding-top: 5rem;
+  padding: 4rem 2rem;
+  text-align: center;
 }
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1.5rem;
+  padding: 2rem 1rem;
   max-width: 1000px;
-  margin: 2rem auto;
-  z-index: 2;
-  position: relative;
+  margin: auto;
 }
-
 .skill-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
-  color: var(--text);
-  font-weight: 500;
-  backdrop-filter: blur(14px);
+  transition: 0.3s ease;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeUp 1s forwards;
-}
-.skill-card:nth-child(n) {
-  animation-delay: calc(0.1s * var(--i, 1));
 }
 .skill-card i {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--accent);
   margin-bottom: 0.5rem;
 }
 .skill-card:hover {
-  transform: translateY(-6px) scale(1.05);
-  border-color: var(--accent);
-  box-shadow: 0 8px 28px rgba(255, 111, 97, 0.2);
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-6px);
 }
-
-/* Floating Blobs */
+.skill-card:hover i {
+  color: #fff;
+}
 .blob {
   position: absolute;
-  width: 280px;
-  height: 280px;
+  background: var(--accent);
   border-radius: 50%;
-  filter: blur(90px);
-  opacity: 0.12;
-  z-index: 0;
+  filter: blur(80px);
+  opacity: 0.15;
 }
 .blob1 {
-  background: var(--accent);
+  width: 200px;
+  height: 200px;
   top: 10%;
-  left: 10%;
-  animation: floatBlob 12s infinite ease-in-out;
+  left: 5%;
+  animation: float 8s ease-in-out infinite;
 }
 .blob2 {
-  background: #4a90e2;
-  bottom: 15%;
-  right: 10%;
-  animation: floatBlob 14s infinite ease-in-out;
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  right: 5%;
+  animation: float 9s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
 }
 
-/* 🎓 Education */
-.education {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-.education__container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 900px;
-  margin: auto;
-}
-.education__card {
-  padding: 2rem;
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
-  background: var(--glass-bg);
-  transition: 0.3s;
-}
-.education__card:hover {
-  transform: translateY(-6px);
-  border-color: var(--accent);
-}
-
-/* 💼 Experience */
+/* === 💼 Work Experience === */
 .experience {
-  margin-top: 5rem;
-  padding: 3rem 2rem;
-  overflow: hidden;
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
 }
 .experience-container {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  max-width: 900px;
-  margin: 2rem auto;
 }
 .experience-card {
   display: flex;
+  gap: 1rem;
   align-items: flex-start;
-  gap: 1.5rem;
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  padding: 1.5rem;
-  backdrop-filter: blur(14px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, border 0.3s ease;
+  padding: 2rem;
+  transition: 0.3s;
   opacity: 0;
   transform: translateY(30px);
-  animation: fadeUp 1s forwards;
-}
-.experience-card:nth-child(n) {
-  animation-delay: calc(0.3s * var(--i, 1));
 }
 .experience-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--accent);
 }
-.exp-icon {
-  background: var(--accent);
-  color: #fff;
-  font-size: 1.8rem;
-  padding: 1rem;
-  border-radius: 50%;
-  flex-shrink: 0;
+.exp-icon i {
+  font-size: 2rem;
+  color: var(--accent);
 }
 .exp-content h3 {
-  font-weight: 600;
-  color: var(--accent);
+  font-size: 1.3rem;
   margin-bottom: 0.3rem;
 }
 .exp-role {
-  font-weight: 500;
+  display: block;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.2rem;
 }
 .exp-period {
   display: block;
   font-size: 0.9rem;
-  color: var(--muted);
-  margin-bottom: 0.8rem;
+  opacity: 0.7;
+  margin-bottom: 0.6rem;
 }
-.exp-content li {
-  font-size: 0.95rem;
+.exp-content ul {
+  list-style: disc;
+  margin-left: 1.2rem;
   line-height: 1.6;
-  color: var(--text);
 }
 
-/* 💌 Contact */
+/* === 🌊 Wave Divider === */
+.wave-divider {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: translateY(5px);
+}
+.wave-divider svg {
+  width: 100%;
+  height: 120px;
+  animation: waveFloat 10s ease-in-out infinite;
+}
+@keyframes waveFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+/* === 💌 Contact === */
 .contact {
   padding: 3rem 2rem;
   text-align: center;
@@ -392,11 +366,10 @@ form {
   max-width: 600px;
   margin: 2rem auto;
 }
-input,
-textarea {
+input, textarea {
   padding: 1rem;
-  border: 1px solid var(--glass-border);
   border-radius: 8px;
+  border: 1px solid var(--glass-border);
   background: var(--glass-bg);
   color: var(--text);
 }
@@ -404,8 +377,8 @@ button {
   background: var(--accent);
   color: #fff;
   padding: 1rem;
-  border: none;
   border-radius: 8px;
+  border: none;
   cursor: pointer;
   transition: 0.3s;
 }
@@ -413,15 +386,15 @@ button:hover {
   background: #ff5b4e;
 }
 
-/* 🦶 Footer */
+/* === 🦶 Footer === */
 .footer {
   text-align: center;
   padding: 1.5rem;
   font-size: 0.9rem;
-  color: var(--muted);
+  color: #999;
 }
 
-/* 💬 Floating Contact */
+/* === 💬 Floating Contact === */
 .floating-contact {
   position: fixed;
   bottom: 1.5rem;
@@ -431,14 +404,16 @@ button:hover {
   padding: 1rem;
   border-radius: 50%;
   font-size: 1.4rem;
+  text-decoration: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: 0.3s;
 }
 .floating-contact:hover {
-  transform: scale(1.1);
+  transform: translateY(-6px);
+  background: #ff5b4e;
 }
 
-/* 🎨 Color Brushes */
+/* === 🎨 Color Brushes === */
 .theme-switchers {
   position: fixed;
   bottom: 1rem;
@@ -461,45 +436,15 @@ button:hover {
   color: #fff;
 }
 
-/* 🌟 Animations */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes floatBlob {
-  0%, 100% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-30px) scale(1.1);
-  }
-}
-
-/* 📱 Responsive */
+/* === 📱 Responsive === */
 @media (max-width: 768px) {
   .hero h1 {
-    font-size: 2.3rem;
+    font-size: 2.4rem;
   }
   .experience-card {
     flex-direction: column;
   }
-  .exp-icon {
-    margin-bottom: 0.8rem;
+  .skill-card {
+    padding: 1rem;
   }
 }
