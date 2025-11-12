@@ -1,11 +1,10 @@
-// ======================================
-// Modern Portfolio Script - Alet Jacob
-// ======================================
+// Modern Portfolio Script – Alet Jacob
 
 // Theme Toggle
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
+// Saved theme
 const savedTheme = localStorage.getItem("portfolio-theme");
 if (savedTheme) {
   body.setAttribute("data-theme", savedTheme);
@@ -37,7 +36,7 @@ function set_color_orange() { setAccent("#f97316"); }
 function set_color_blue() { setAccent("#2196f3"); }
 function set_color_bluegray() { setAccent("#546e7a"); }
 
-// Subtle Accent Pulse Animation
+// Accent Pulse Animation
 function accentPulse() {
   const flash = document.createElement("div");
   flash.className = "accent-flash";
@@ -49,7 +48,7 @@ const style = document.createElement("style");
 style.textContent = `
   .accent-flash {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    inset: 0;
     background: var(--accent);
     opacity: 0.08;
     z-index: 9999;
