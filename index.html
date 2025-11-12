@@ -18,7 +18,6 @@
     <!-- AOS + Custom Styles -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css" />
-
     <script defer src="script.js"></script>
   </head>
 
@@ -121,7 +120,6 @@
       </div>
 
       <h2 class="section-title">Skills</h2>
-
       <div class="skills-grid">
         <div class="skill-card"><i class="bx bxl-adobe"></i><span>Photoshop</span></div>
         <div class="skill-card"><i class="bx bxl-adobe"></i><span>Illustrator</span></div>
@@ -144,67 +142,54 @@
         <div class="skill-card"><i class="bx bx-paint"></i><span>Digital Illustration</span></div>
         <div class="skill-card"><i class="bx bx-bulb"></i><span>Creative Direction</span></div>
       </div>
-
       <div class="blob blob1"></div>
       <div class="blob blob2"></div>
-    </section>
-
-    <!-- 🎓 Education -->
-    <section class="education" data-aos="fade-up">
-      <h2 class="section-title">Education</h2>
-      <div class="education__container">
-        <div class="education__card glass">
-          <h3>Bachelor of Computer Applications</h3>
-          <p>St George's College, Aruvithura</p>
-          <span>2018 – 2021</span>
-        </div>
-        <div class="education__card glass">
-          <h3>Higher Secondary (Science)</h3>
-          <p>St Mary's Higher Secondary School</p>
-          <span>2017 – 2018</span>
-        </div>
-        <div class="education__card glass">
-          <h3>Secondary School</h3>
-          <p>St Paul's Higher Secondary School</p>
-          <span>2015 – 2016</span>
-        </div>
-      </div>
     </section>
 
     <!-- 💼 Work Experience -->
     <section class="experience glass" data-aos="fade-up" id="experience">
       <h2 class="section-title">Work Experience</h2>
-
       <div class="experience-container">
-        <div class="experience-card">
-          <div class="exp-icon"><i class="bx bxs-briefcase"></i></div>
+        <div class="experience-card" style="--i:1">
+          <div class="exp-icon"><i class="bx bx-briefcase-alt"></i></div>
           <div class="exp-content">
             <h3>Bethany Wedding Stories</h3>
-            <p class="exp-role">Graphic Designer (Freelance)</p>
-            <span class="exp-period">Dec 2023 – Sep 2025 | Kottayam, Kerala, India</span>
+            <span class="exp-role">Graphic Designer (Freelance)</span>
+            <span class="exp-period">12/2023 – 09/2025 | Kottayam, Kerala</span>
             <ul>
-              <li>Designed custom wedding albums, logos, and brand materials using <b>Adobe Photoshop</b> and <b>Illustrator</b>.</li>
-              <li>Delivered high-resolution designs for print and digital platforms with consistent branding.</li>
-              <li>Contributed to marketing strategy and professional color grading for photography visuals.</li>
+              <li>Designed custom wedding albums, logos, and brand materials using Adobe Photoshop and Illustrator with elegant layouts and color grading.</li>
+              <li>Delivered high-resolution designs for print and digital, ensuring consistency in branding and tone.</li>
+              <li>Enhanced visual identity for wedding events and photography services through curated design and strategy.</li>
             </ul>
           </div>
         </div>
 
-        <div class="experience-card">
-          <div class="exp-icon"><i class="bx bx-code-alt"></i></div>
+        <div class="experience-card" style="--i:2">
+          <div class="exp-icon"><i class="bx bx-code-block"></i></div>
           <div class="exp-content">
             <h3>Gate Future Labs Pvt. Ltd.</h3>
-            <p class="exp-role">Web Developer</p>
-            <span class="exp-period">Aug 2023 – Mar 2025 | Bengaluru, Karnataka, India</span>
+            <span class="exp-role">Web Developer</span>
+            <span class="exp-period">08/2023 – 03/2025 | Bengaluru, Karnataka</span>
             <ul>
-              <li>Integrated <b>AI-powered features</b> using Python, OpenAI API, and automation tools.</li>
-              <li>Designed clean, responsive UI layouts and maintained modern front-end workflows.</li>
-              <li>Collaborated with teams to enhance digital experiences through creative UX design.</li>
+              <li>Integrated AI-powered features using Python, OpenAI API, and automation tools to enhance user experience.</li>
+              <li>Developed and maintained front-end interfaces with responsive design and user-friendly interactivity.</li>
+              <li>Collaborated with design and tech teams for clean, accessible, and modern web layouts.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
+
+    <!-- 🌊 Animated Divider -->
+    <div class="wave-divider">
+      <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path
+          fill="var(--accent)"
+          fill-opacity="0.15"
+          d="M0,128L60,133.3C120,139,240,149,360,144C480,139,600,117,720,138.7C840,160,960,224,1080,250.7C1200,277,1320,267,1380,261.3L1440,256V320H0Z"
+        ></path>
+      </svg>
+    </div>
 
     <!-- 💌 Contact -->
     <section class="contact glass" id="contact" data-aos="fade-up">
@@ -236,6 +221,7 @@
       <i class="bx bx-brush" onclick="set_color_bluegray()" title="Blue Gray"></i>
     </div>
 
+    <!-- 🔄 AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({ duration: 1000, once: true });
