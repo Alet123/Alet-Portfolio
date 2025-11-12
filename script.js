@@ -1,4 +1,4 @@
-// ====== Theme Toggle ======
+// === Theme Toggle ===
 const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
 
@@ -9,7 +9,7 @@ if (savedTheme) {
   if (savedTheme === "light") themeToggle.checked = true;
 }
 
-// Toggle
+// Toggle event
 themeToggle?.addEventListener("change", () => {
   const newTheme = themeToggle.checked ? "light" : "dark";
   body.setAttribute("data-theme", newTheme);
@@ -17,9 +17,10 @@ themeToggle?.addEventListener("change", () => {
   accentPulse();
 });
 
-// ====== Accent Colors ======
+// === Accent Colors ===
 const savedAccent = localStorage.getItem("portfolio-accent");
-if (savedAccent) document.documentElement.style.setProperty("--accent", savedAccent);
+if (savedAccent)
+  document.documentElement.style.setProperty("--accent", savedAccent);
 
 function setAccent(color) {
   document.documentElement.style.setProperty("--accent", color);
@@ -33,7 +34,7 @@ function set_color_orange() { setAccent("#f97316"); }
 function set_color_blue() { setAccent("#2196f3"); }
 function set_color_bluegray() { setAccent("#546e7a"); }
 
-// ====== Accent Flash Animation ======
+// === Accent Flash Animation ===
 function accentPulse() {
   const flash = document.createElement("div");
   flash.className = "accent-flash";
