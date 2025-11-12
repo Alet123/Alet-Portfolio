@@ -275,6 +275,99 @@ input:checked + .slider:before {
   transform: translateY(-3px);
 }
 
+/* 🛠️ Enhanced Skills Section */
+.section-decor svg {
+  width: 100%;
+  display: block;
+  margin-bottom: -3rem;
+}
+
+.skills {
+  position: relative;
+  overflow: hidden;
+  padding-top: 5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 2rem auto;
+  z-index: 2;
+  position: relative;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transition: all 0.4s ease;
+  color: var(--text);
+  font-weight: 500;
+  backdrop-filter: blur(14px);
+}
+
+.skill-card i {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.skill-card span {
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px) scale(1.05);
+  border-color: var(--accent);
+  box-shadow: 0 8px 28px rgba(255,111,97,0.2);
+}
+
+.skill-card:hover i {
+  transform: scale(1.2) rotate(5deg);
+  color: var(--accent);
+}
+
+/* Floating Blob Backgrounds */
+.blob {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.12;
+  z-index: 0;
+}
+
+.blob1 {
+  background: var(--accent);
+  top: 10%;
+  left: 10%;
+  animation: floatBlob 12s infinite ease-in-out;
+}
+
+.blob2 {
+  background: #4a90e2;
+  bottom: 15%;
+  right: 10%;
+  animation: floatBlob 14s infinite ease-in-out;
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-30px) scale(1.1); }
+}
+
+
 /* 🎓 Education */
 .education {
   padding: 4rem 2rem;
