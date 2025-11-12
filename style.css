@@ -99,15 +99,17 @@ input:checked + .slider:before {
   animation: fadeInDown 1s ease;
 }
 
+
 .profile-img {
-  width: 170px;
-  height: 170px;
-  border-radius: 70%;
-  border: 6px solid var(--accent);
-  object-fit: cover;
-  animation: pulse-border 3s infinite;
-  margin-bottom: 1.2rem;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid var(--accent);
+  object-fit: contain;       /* ✅ Show full image inside the circle */
+  background-color: #000;    /* Optional: adds contrast behind transparent areas */
+  padding: 4px;              /* Keeps a nice margin inside the border */
 }
+
 
 @keyframes pulse-border {
   0% {
