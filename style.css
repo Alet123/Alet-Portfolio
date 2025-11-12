@@ -105,6 +105,8 @@ input:checked + .slider:before {
   border-radius: 50%;
   border: 6px solid var(--accent);
   object-fit: cover;
+  padding: 8px;
+  place-items: center;
   animation: pulse-border 3s infinite;
   margin-bottom: 1.2rem;
 }
