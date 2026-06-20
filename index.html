@@ -30,11 +30,17 @@
     <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- ====== THEME TOGGLE ====== -->
-    <div class="toggle-container">
-        <label class="switch">
-            <input type="checkbox" id="themeToggle" />
-            <span class="slider"></span>
-        </label>
+    <div class="theme-toggle-wrapper">
+        <span class="theme-status" id="themeStatus">Dark</span>
+        <div class="theme-toggle" id="themeToggleBtn" role="button" aria-label="Toggle theme">
+            <div class="toggle-track">
+                <div class="toggle-thumb" id="toggleThumb">
+                    <i class="bx bx-sun icon icon-sun"></i>
+                    <i class="bx bx-moon icon icon-moon"></i>
+                </div>
+            </div>
+            <div class="toggle-sparkle" id="toggleSparkle"></div>
+        </div>
     </div>
 
     <!-- ====== NAVIGATION ====== -->
@@ -93,19 +99,10 @@
                 </a>
             </div>
 
+            <!-- Updated Stats: Only 2.5 Years Experience -->
             <div class="hero-stats">
                 <div class="stat-item">
-                    <span class="stat-number" data-count="20">0</span>
-                    <span class="stat-label">Projects</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="12">0</span>
-                    <span class="stat-label">Clients</span>
-                </div>
-                <div class="stat-divider"></div>
-                <div class="stat-item">
-                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-number">2.5</span>
                     <span class="stat-label">Years Experience</span>
                 </div>
             </div>
@@ -138,7 +135,7 @@
         </div>
     </section>
 
-    <!-- ====== WORK / PORTFOLIO (RESTORED WITH YOUR ORIGINAL LINKS) ====== -->
+    <!-- ====== WORK / PORTFOLIO ====== -->
     <section class="work" id="work">
         <div class="section-header">
             <span class="section-tag">Portfolio</span>
@@ -306,7 +303,7 @@
                     <div class="about-image-border"></div>
                 </div>
                 <div class="about-experience-badge">
-                    <span class="exp-number">5+</span>
+                    <span class="exp-number">2.5+</span>
                     <span class="exp-label">Years Experience</span>
                 </div>
             </div>
@@ -367,8 +364,6 @@
         </div>
 
         <div class="skills-grid">
-
-            <!-- Adobe Creative Suite -->
             <div class="skill-card">
                 <div class="skill-icon"><i class="bx bxl-adobe"></i></div>
                 <span class="skill-name">Adobe Photoshop</span>
@@ -394,8 +389,6 @@
                 <span class="skill-name">Adobe Lightroom</span>
                 <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
             </div>
-
-            <!-- Design & Prototyping -->
             <div class="skill-card">
                 <div class="skill-icon"><i class="bx bxl-figma"></i></div>
                 <span class="skill-name">Figma</span>
@@ -416,8 +409,6 @@
                 <span class="skill-name">VN Editor</span>
                 <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
             </div>
-
-            <!-- Design Disciplines -->
             <div class="skill-card">
                 <div class="skill-icon"><i class="bx bxs-pen"></i></div>
                 <span class="skill-name">Brand Identity Design</span>
@@ -498,8 +489,6 @@
                 <span class="skill-name">Creative Concept Development</span>
                 <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
             </div>
-
-            <!-- AI & Digital Marketing -->
             <div class="skill-card">
                 <div class="skill-icon"><i class="bx bx-bot"></i></div>
                 <span class="skill-name">AI-Powered Design</span>
