@@ -1,5 +1,5 @@
 /* ============================================================
-   🎨 ALET JACOB – PREMIUM STYLES (Separate File)
+   🎨 ALET JACOB – PREMIUM STYLES
    ============================================================ */
 
 * {
@@ -52,7 +52,18 @@ body {
     color: #fff;
 }
 
-/* ── Theme Toggle (Top-Right) ── */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+/* ── Theme Toggle ── */
 .theme-toggle-wrapper {
     position: fixed;
     top: 1.2rem;
@@ -76,7 +87,6 @@ body {
     color: var(--text-muted);
     transition: var(--transition);
 }
-
 .theme-status.light {
     color: #f59e0b;
 }
@@ -614,7 +624,7 @@ body {
     overflow: hidden;
     transition: var(--transition);
     backdrop-filter: blur(10px);
-    cursor: pointer; /* make it look clickable */
+    cursor: pointer;
 }
 .work-card:hover {
     transform: translateY(-8px);
@@ -632,7 +642,7 @@ body {
     font-size: 2.2rem;
     color: var(--accent);
     transition: var(--transition);
-    pointer-events: none; /* prevent interfering with click */
+    pointer-events: none;
 }
 .work-card:hover .work-card-icon {
     background: var(--accent);
@@ -649,7 +659,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    pointer-events: none; /* prevent interfering with click */
+    pointer-events: none;
 }
 @keyframes cardGradient {
     0%,
@@ -689,7 +699,7 @@ body {
     justify-content: center;
     opacity: 0;
     transition: var(--transition);
-    pointer-events: none; /* prevent interfering with click */
+    pointer-events: none;
 }
 .work-card:hover .work-overlay {
     opacity: 1;
@@ -712,7 +722,7 @@ body {
 
 .work-card-info {
     padding: 1.2rem;
-    pointer-events: none; /* prevent interfering with click */
+    pointer-events: none;
 }
 .work-category {
     display: inline-block;
