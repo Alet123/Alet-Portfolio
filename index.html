@@ -1,292 +1,640 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alet Jacob – Graphic Designer</title>
 
-    <!-- 🌟 Auto Favicon (no upload needed) -->
-  <link
-    rel="icon"
-    href="https://cdn-icons-png.flaticon.com/512/942/942748.png"
-    type="image/png"
-  />
+    <!-- Favicon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/942/942748.png" type="image/png" />
 
-    <!-- Google Fonts & Boxicons -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-    <!-- AOS + Custom Styles -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <!-- Boxicons -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
-    <script defer src="script.js"></script>
-  </head>
-
-  <body>
-    <!-- 🌗 Theme Toggle -->
-    <div class="toggle-container">
-      <label class="switch">
-        <input type="checkbox" id="themeToggle" />
-        <span class="slider round"></span>
-      </label>
+    <!-- ====== PRELOADER ====== -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-ring"></div>
+        <div class="preloader-text">Loading</div>
     </div>
 
-    <!-- 🧑‍🎨 Hero Section -->
-    <header class="hero glass" data-aos="fade-down">
-      <div class="hero-intro">👋 Hello, I'm</div>
-      <img src="assets/aletj.png" alt="Alet Jacob" class="profile-img" />
-      <h1 class="gradient-text">ALET JACOB</h1>
-      <p class="subtitle">Creative Graphic Designer</p>
+    <!-- ====== CURSOR ====== -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
-      <div class="social-icons">
-        <a
-          href="https://www.instagram.com/alet.jac_?igsh=MXBmMjgzZWl5dmppcQ=="
-          target="_blank"
-          title="Instagram"
-        >
-          <i class="bx bxl-instagram"></i>
-        </a>
-        <a href="https://wa.me/919061201481" target="_blank" title="WhatsApp">
-          <i class="bx bxl-whatsapp"></i>
-        </a>
-        <a href="mailto:aletjacob123@gmail.com" title="Email">
-          <i class="bx bx-envelope"></i>
-        </a>
-      </div>
-    </header>
+    <!-- ====== THEME TOGGLE ====== -->
+    <div class="toggle-container">
+        <label class="switch">
+            <input type="checkbox" id="themeToggle" />
+            <span class="slider"></span>
+        </label>
+    </div>
 
-    <!-- 🖼️ Portfolio -->
-    <section class="portfolio" data-aos="fade-up">
-      <h2 class="section-title">My Work</h2>
-      <div class="portfolio-grid">
-        <div class="flipbook-card glass">
-          <h3>Premium Wedding Album</h3>
-          <p>Curated design showcase:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/88f17b103e.html"
-            target="_blank"
-            >📖 View Album</a
-          >
+    <!-- ====== NAVIGATION ====== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="brand-dot"></span>
+            <span class="brand-text">Alet<span>.</span></span>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ====== HERO ====== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
         </div>
 
-        <div class="flipbook-card glass">
-          <h3>Premium Album</h3>
-          <p>Curated design showcase:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/88f17b103e.html"
-            target="_blank"
-            >📖 View Album</a
-          >
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                Available for freelance
+            </div>
+
+            <div class="hero-intro">👋 Hello, I'm</div>
+
+            <h1 class="gradient-text" id="heroName">ALET JACOB</h1>
+
+            <p class="subtitle">Creative Graphic Designer</p>
+
+            <p class="hero-description">
+                Crafting <span class="highlight">visual stories</span> that inspire,
+                connect, and leave a lasting impression.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#work" class="btn-primary">
+                    <span>View My Work</span>
+                    <i class="bx bx-arrow-right"></i>
+                </a>
+                <a href="#contact" class="btn-secondary">
+                    <i class="bx bx-paper-plane"></i>
+                    <span>Let's Talk</span>
+                </a>
+            </div>
+
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <span class="stat-number" data-count="20">0</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="12">0</span>
+                    <span class="stat-label">Clients</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item">
+                    <span class="stat-number" data-count="5">0</span>
+                    <span class="stat-label">Awards</span>
+                </div>
+            </div>
+
+            <div class="social-icons">
+                <a href="https://www.instagram.com/alet.jac_?igsh=MXBmMjgzZWl5dmppcQ==" target="_blank" title="Instagram">
+                    <i class="bx bxl-instagram"></i>
+                </a>
+                <a href="https://wa.me/919061201481" target="_blank" title="WhatsApp">
+                    <i class="bx bxl-whatsapp"></i>
+                </a>
+                <a href="mailto:aletjacob123@gmail.com" title="Email">
+                    <i class="bx bx-envelope"></i>
+                </a>
+                <a href="#" title="Behance">
+                    <i class="bx bxl-behance"></i>
+                </a>
+                <a href="#" title="Dribbble">
+                    <i class="bx bxl-dribbble"></i>
+                </a>
+            </div>
         </div>
 
-        <div class="flipbook-card glass">
-          <h3>Logo Works</h3>
-          <p>Creative logo collection:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/7dc9acfb80.html"
-            target="_blank"
-            >🎨 View Logos</a
-          >
+        <div class="hero-scroll">
+            <span>Scroll</span>
+            <div class="scroll-line"></div>
         </div>
-
-        <div class="flipbook-card glass">
-          <h3>Photoshop Works 1</h3>
-          <p>Visual experiments & posters:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/3c908ab689.html"
-            target="_blank"
-            >🖼️ View Works</a
-          >
-        </div>
-
-        <div class="flipbook-card glass">
-          <h3>Photoshop Works 2</h3>
-          <p>Visual experiments & posters:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/7120588c54.html"
-            target="_blank"
-            >🖼️ View Works</a
-          >
-        </div>
-
-        <div class="flipbook-card glass">
-          <h3>Photoshop Works 1</h3>
-          <p>Visual experiments & posters:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/f08306f46f.html"
-            target="_blank"
-            >🖼️ View Works</a
-          >
-        </div>
-
-
-        <div class="flipbook-card glass">
-          <h3>Package Design 2</h3>
-          <p>Visual experiments & posters:</p>
-          <a
-            class="flipbook-button"
-            href="https://heyzine.com/flip-book/cd10d3ddad.html"
-            target="_blank"
-            >🖼️ View Works</a
-          >
-        </div>
-
-        
-        
-      </div>
     </section>
 
-    <!-- 💡 About -->
-    <section class="about glass" data-aos="fade-up">
-      <h2 class="section-title">About Me</h2>
-      <p class="about-text">
-        I craft <span class="highlight">visual stories</span> that inspire and
-        connect.<br />
-        From <span class="highlight">branding</span> to
-        <span class="highlight">color grading</span>, I transform ideas into
-        visuals that speak louder than words.<br />
-        Every design balances <span class="highlight">creativity</span> and
-        <span class="highlight">strategy</span>.
-      </p>
-    </section>
-<br><br>
-
-    <!-- 🛠️ Skills -->
-    <section class="skills glass" data-aos="fade-up" id="skills">
-      <div class="section-decor">
-        <svg viewBox="0 0 1440 320">
-          <path
-            fill="var(--accent)"
-            fill-opacity="0.15"
-            d="M0,256L80,234.7C160,213,320,171,480,165.3C640,160,800,192,960,186.7C1120,181,1280,139,1360,117.3L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-          ></path>
-        </svg>
-      </div>
-
-      <h2 class="section-title">Skills</h2>
-
-      <div class="skills-grid">
-        <div class="skill-card"><i class="bx bxl-adobe"></i><span>Photoshop</span></div>
-        <div class="skill-card"><i class="bx bxl-adobe"></i><span>Illustrator</span></div>
-        <div class="skill-card"><i class="bx bxl-figma"></i><span>Figma</span></div>
-        <div class="skill-card"><i class="bx bxs-layout"></i><span>InDesign</span></div>
-        <div class="skill-card"><i class="bx bxs-pencil"></i><span>UI/UX</span></div>
-        <div class="skill-card"><i class="bx bxs-palette"></i><span>Branding</span></div>
-        <div class="skill-card"><i class="bx bx-printer"></i><span>Print Design</span></div>
-        <div class="skill-card"><i class="bx bxs-video"></i><span>Motion Graphics</span></div>
-        <div class="skill-card"><i class="bx bx-code-alt"></i><span>Web Designing</span></div>
-        <div class="skill-card"><i class="bx bxs-droplet"></i><span>Colour Grading</span></div>
-        <div class="skill-card"><i class="bx bxs-image-alt"></i><span>Social Media Design</span></div>
-        <div class="skill-card"><i class="bx bx-bot"></i><span>AI-Assisted Design</span></div>
-        <div class="skill-card"><i class="bx bxs-video-recording"></i><span>Video Editing</span></div>
-        <div class="skill-card"><i class="bx bx-movie-play"></i><span>Reel & Short Videos</span></div>
-        <div class="skill-card"><i class="bx bxs-pen"></i><span>Logo Design</span></div>
-        <div class="skill-card"><i class="bx bxs-megaphone"></i><span>Poster & Banner</span></div>
-        <div class="skill-card"><i class="bx bx-photo-album"></i><span>Photo Manipulation</span></div>
-        <div class="skill-card"><i class="bx bxs-box"></i><span>Packaging Design</span></div>
-        <div class="skill-card"><i class="bx bx-paint"></i><span>Digital Illustration</span></div>
-        <div class="skill-card"><i class="bx bx-bulb"></i><span>Creative Direction</span></div>
-      </div>
-
-      <div class="blob blob1"></div>
-      <div class="blob blob2"></div>
-    </section>
-
-    <!-- 🎓 Education -->
-    <section class="education" data-aos="fade-up">
-      <h2 class="section-title">Education</h2>
-      <div class="education__container">
-        <div class="education__card glass">
-          <h3>Bachelor of Computer Applications</h3>
-          <p>St George's College, Aruvithura</p>
-          <span>2018 – 2021</span>
-        </div>
-        <div class="education__card glass">
-          <h3>Higher Secondary (Science)</h3>
-          <p>St Mary's Higher Secondary School</p>
-          <span>2017 – 2018</span>
-        </div>
-        <div class="education__card glass">
-          <h3>Secondary School</h3>
-          <p>St Paul's Higher Secondary School</p>
-          <span>2015 – 2016</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- 💼 Work Experience -->
-    <section class="experience glass" data-aos="fade-up" id="experience">
-      <h2 class="section-title">Work Experience</h2>
-
-      <div class="experience-container">
-        <div class="experience-card">
-          <div class="exp-icon"><i class="bx bxs-briefcase"></i></div>
-          <div class="exp-content">
-            <h3>Bethany Wedding Stories</h3>
-            <p class="exp-role">Graphic Designer </p>
-            <span class="exp-period">Dec 2023 – Sep 2025 | Kottayam, Kerala, India</span>
-          </div>
+    <!-- ====== WORK / PORTFOLIO ====== -->
+    <section class="work" id="work">
+        <div class="section-header">
+            <span class="section-tag">Portfolio</span>
+            <h2 class="section-title">My <span class="highlight">Work</span></h2>
+            <p class="section-desc">A curated selection of my finest design projects</p>
         </div>
 
-        <div class="experience-card">
-          <div class="exp-icon"><i class="bx bx-code-alt"></i></div>
-          <div class="exp-content">
-            <h3>Gate Future Labs Pvt. Ltd.</h3>
-            <p class="exp-role">Web Developer</p>
-            <span class="exp-period">Aug 2023 – Mar 2025 | Bengaluru, Karnataka, India</span>
-          </div>
+        <div class="work-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="album">Albums</button>
+            <button class="filter-btn" data-filter="logo">Logos</button>
+            <button class="filter-btn" data-filter="photoshop">Photoshop</button>
+            <button class="filter-btn" data-filter="package">Packaging</button>
         </div>
-      </div>
-    </section>
-    <br><br>
 
-    <!-- 💌 Contact -->
-    <section class="contact glass" id="contact" data-aos="fade-up">
-      <h2 class="section-title">Contact Me</h2>
-      <form>
-        <input type="text" placeholder="Your Name" required />
-        <input type="email" placeholder="Your Email" required />
-        <textarea placeholder="Your Message" required></textarea>
-        <button type="submit">Send</button>
-      </form>
+        <div class="work-grid">
+            <!-- Wedding Album 1 -->
+            <div class="work-card" data-category="album">
+                <div class="work-card-icon">
+                    <i class="bx bxs-book-open"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/88f17b103e.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Wedding Album</span>
+                    <h3>Premium Wedding Album</h3>
+                    <p>Curated design showcase</p>
+                </div>
+            </div>
+
+            <!-- Premium Album 2 -->
+            <div class="work-card" data-category="album">
+                <div class="work-card-icon">
+                    <i class="bx bxs-book"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/88f17b103e.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Wedding Album</span>
+                    <h3>Premium Album</h3>
+                    <p>Curated design showcase</p>
+                </div>
+            </div>
+
+            <!-- Logo Works -->
+            <div class="work-card" data-category="logo">
+                <div class="work-card-icon">
+                    <i class="bx bxs-pen"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/7dc9acfb80.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Logo Design</span>
+                    <h3>Logo Works</h3>
+                    <p>Creative logo collection</p>
+                </div>
+            </div>
+
+            <!-- Photoshop 1 -->
+            <div class="work-card" data-category="photoshop">
+                <div class="work-card-icon">
+                    <i class="bx bxs-image-alt"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/3c908ab689.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Photoshop</span>
+                    <h3>Photoshop Works 1</h3>
+                    <p>Visual experiments & posters</p>
+                </div>
+            </div>
+
+            <!-- Photoshop 2 -->
+            <div class="work-card" data-category="photoshop">
+                <div class="work-card-icon">
+                    <i class="bx bxs-photo-album"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/7120588c54.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Photoshop</span>
+                    <h3>Photoshop Works 2</h3>
+                    <p>Visual experiments & posters</p>
+                </div>
+            </div>
+
+            <!-- Photoshop 3 -->
+            <div class="work-card" data-category="photoshop">
+                <div class="work-card-icon">
+                    <i class="bx bxs-paint"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/f08306f46f.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Photoshop</span>
+                    <h3>Photoshop Works 3</h3>
+                    <p>Visual experiments & posters</p>
+                </div>
+            </div>
+
+            <!-- Packaging -->
+            <div class="work-card" data-category="package">
+                <div class="work-card-icon">
+                    <i class="bx bxs-box"></i>
+                </div>
+                <div class="work-card-image">
+                    <div class="work-overlay">
+                        <a href="https://heyzine.com/flip-book/cd10d3ddad.html" target="_blank" class="work-link">
+                            <i class="bx bx-link-external"></i>
+                            <span>View Project</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="work-card-info">
+                    <span class="work-category">Packaging</span>
+                    <h3>Package Design 2</h3>
+                    <p>Visual experiments & posters</p>
+                </div>
+            </div>
+        </div>
     </section>
-<br><br>
-    <!-- 🦶 Footer -->
-    <footer class="footer glass">
-      <p>© 2026 <strong>Alet Jac</strong>. All rights reserved.</p>
+
+    <!-- ====== ABOUT ====== -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <div class="about-image-wrapper">
+                    <img src="assets/aletj.png" alt="Alet Jacob" />
+                    <div class="about-image-border"></div>
+                </div>
+                <div class="about-experience-badge">
+                    <span class="exp-number">5+</span>
+                    <span class="exp-label">Years Experience</span>
+                </div>
+            </div>
+
+            <div class="about-content">
+                <span class="section-tag">About Me</span>
+                <h2 class="section-title">Who <span class="highlight">I Am</span></h2>
+                <p class="about-text">
+                    I'm Alet Jacob, a passionate <span class="highlight">Graphic Designer</span>
+                    with a love for creating visuals that tell compelling stories.
+                    From <span class="highlight">branding</span> to
+                    <span class="highlight">color grading</span>, I transform ideas into
+                    visuals that speak louder than words.
+                </p>
+                <p class="about-text">
+                    Every design I create balances <span class="highlight">creativity</span>
+                    and <span class="highlight">strategy</span>, ensuring that each project
+                    not only looks beautiful but also achieves its goals.
+                </p>
+
+                <div class="about-info-grid">
+                    <div class="about-info-item">
+                        <span class="info-label">Name</span>
+                        <span class="info-value">Alet Jacob</span>
+                    </div>
+                    <div class="about-info-item">
+                        <span class="info-label">Email</span>
+                        <span class="info-value">aletjacob123@gmail.com</span>
+                    </div>
+                    <div class="about-info-item">
+                        <span class="info-label">Location</span>
+                        <span class="info-value">Kerala, India</span>
+                    </div>
+                    <div class="about-info-item">
+                        <span class="info-label">Freelance</span>
+                        <span class="info-value">Available</span>
+                    </div>
+                </div>
+
+                <a href="#contact" class="btn-primary">
+                    <span>Hire Me</span>
+                    <i class="bx bx-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== SKILLS ====== -->
+    <section class="skills" id="skills">
+        <div class="section-header">
+            <span class="section-tag">Expertise</span>
+            <h2 class="section-title">My <span class="highlight">Skills</span></h2>
+            <p class="section-desc">Technologies and tools I work with</p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxl-adobe"></i></div>
+                <span class="skill-name">Photoshop</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxl-adobe"></i></div>
+                <span class="skill-name">Illustrator</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxl-figma"></i></div>
+                <span class="skill-name">Figma</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxs-layout"></i></div>
+                <span class="skill-name">InDesign</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxs-pencil"></i></div>
+                <span class="skill-name">UI/UX Design</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxs-palette"></i></div>
+                <span class="skill-name">Branding</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bx-printer"></i></div>
+                <span class="skill-name">Print Design</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxs-video"></i></div>
+                <span class="skill-name">Motion Graphics</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 78%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bx-code-alt"></i></div>
+                <span class="skill-name">Web Design</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 82%;"></div></div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon"><i class="bx bxs-droplet"></i></div>
+                <span class="skill-name">Colour Grading</span>
+                <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== EDUCATION ====== -->
+    <section class="education" id="education">
+        <div class="section-header">
+            <span class="section-tag">Education</span>
+            <h2 class="section-title">My <span class="highlight">Journey</span></h2>
+        </div>
+
+        <div class="education-timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Bachelor of Computer Applications</h3>
+                    <p class="timeline-institute">St George's College, Aruvithura</p>
+                    <span class="timeline-date">2018 – 2021</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Higher Secondary (Science)</h3>
+                    <p class="timeline-institute">St Mary's Higher Secondary School</p>
+                    <span class="timeline-date">2017 – 2018</span>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <h3>Secondary School</h3>
+                    <p class="timeline-institute">St Paul's Higher Secondary School</p>
+                    <span class="timeline-date">2015 – 2016</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== EXPERIENCE ====== -->
+    <section class="experience" id="experience">
+        <div class="section-header">
+            <span class="section-tag">Career</span>
+            <h2 class="section-title">Work <span class="highlight">Experience</span></h2>
+        </div>
+
+        <div class="experience-container">
+            <div class="experience-card">
+                <div class="exp-icon"><i class="bx bxs-briefcase"></i></div>
+                <div class="exp-content">
+                    <h3>Bethany Wedding Stories</h3>
+                    <p class="exp-role">Graphic Designer</p>
+                    <span class="exp-period">Dec 2023 – Sep 2025 | Kottayam, Kerala</span>
+                    <p class="exp-desc">Designed premium wedding albums, branding materials, and visual content for clients.</p>
+                </div>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-icon"><i class="bx bx-code-alt"></i></div>
+                <div class="exp-content">
+                    <h3>Gate Future Labs Pvt. Ltd.</h3>
+                    <p class="exp-role">Web Developer</p>
+                    <span class="exp-period">Aug 2023 – Mar 2025 | Bengaluru, Karnataka</span>
+                    <p class="exp-desc">Built responsive websites, collaborated with design teams, and optimized user experiences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section class="testimonials">
+        <div class="section-header">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-title">What Clients <span class="highlight">Say</span></h2>
+        </div>
+
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Alet's design work for our wedding album was absolutely stunning.
+                    Every page was a piece of art. Highly recommend!"
+                </p>
+                <div class="testimonial-author">
+                    <strong>Sarah & Michael</strong>
+                    <span>Wedding Clients</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Working with Alet was a breeze. She understood our brand vision
+                    perfectly and delivered beyond our expectations."
+                </p>
+                <div class="testimonial-author">
+                    <strong>John Mathew</strong>
+                    <span>Business Owner</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="testimonial-stars">
+                    <i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "Her attention to detail and creative flair made our project stand out.
+                    She's a true professional and a pleasure to work with."
+                </p>
+                <div class="testimonial-author">
+                    <strong>Priya Nair</strong>
+                    <span>Creative Director</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT ====== -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <span class="section-tag">Get in Touch</span>
+            <h2 class="section-title">Let's Work <span class="highlight">Together</span></h2>
+            <p class="section-desc">Have a project in mind? I'd love to hear about it.</p>
+        </div>
+
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-info-item">
+                    <div class="contact-icon"><i class="bx bx-envelope"></i></div>
+                    <div>
+                        <h4>Email</h4>
+                        <a href="mailto:aletjacob123@gmail.com">aletjacob123@gmail.com</a>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-icon"><i class="bx bx-phone"></i></div>
+                    <div>
+                        <h4>Phone</h4>
+                        <a href="tel:+919061201481">+91 90612 01481</a>
+                    </div>
+                </div>
+                <div class="contact-info-item">
+                    <div class="contact-icon"><i class="bx bx-map"></i></div>
+                    <div>
+                        <h4>Location</h4>
+                        <span>Kerala, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" id="contactName" placeholder="Your Name" required />
+                </div>
+                <div class="form-group">
+                    <input type="email" id="contactEmail" placeholder="Your Email" required />
+                </div>
+                <div class="form-group">
+                    <input type="text" id="contactSubject" placeholder="Subject" />
+                </div>
+                <div class="form-group">
+                    <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                    <span>Send Message</span>
+                    <i class="bx bx-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="brand-text">Alet<span>.</span></span>
+                <p>Creative Graphic Designer crafting visual stories that inspire.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#work">Work</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="footer-social">
+                <a href="https://www.instagram.com/alet.jac_?igsh=MXBmMjgzZWl5dmppcQ==" target="_blank"><i class="bx bxl-instagram"></i></a>
+                <a href="https://wa.me/919061201481" target="_blank"><i class="bx bxl-whatsapp"></i></a>
+                <a href="mailto:aletjacob123@gmail.com"><i class="bx bx-envelope"></i></a>
+                <a href="#"><i class="bx bxl-behance"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 <strong>Alet Jac</strong>. All rights reserved. Made with <i class="bx bx-heart"></i></p>
+        </div>
     </footer>
-    
 
-    <!-- 💬 Floating Contact -->
+    <!-- ====== FLOATING CONTACT ====== -->
     <a href="#contact" class="floating-contact" title="Message Me">
-      <i class="bx bx-chat"></i>
+        <i class="bx bx-chat"></i>
+        <span class="floating-pulse"></span>
     </a>
 
-    <!-- 🎨 Theme Color Brushes -->
+    <!-- ====== COLOR BRUSHES ====== -->
     <div class="theme-switchers">
-      <i class="bx bx-brush" onclick="set_color_purple()" title="Purple"></i>
-      <i class="bx bx-brush" onclick="set_color_pink()" title="Pink"></i>
-      <i class="bx bx-brush" onclick="set_color_orange()" title="Orange"></i>
-      <i class="bx bx-brush" onclick="set_color_blue()" title="Blue"></i>
-      <i class="bx bx-brush" onclick="set_color_bluegray()" title="Blue Gray"></i>
+        <i class="bx bx-brush" data-color="#a259ff" title="Purple"></i>
+        <i class="bx bx-brush" data-color="#ff61d9" title="Pink"></i>
+        <i class="bx bx-brush" data-color="#f97316" title="Orange"></i>
+        <i class="bx bx-brush" data-color="#3b82f6" title="Blue"></i>
+        <i class="bx bx-brush" data-color="#64748b" title="Blue Gray"></i>
     </div>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-      AOS.init({ duration: 1000, once: true });
-    </script>
-  </body>
+    <!-- ====== MAIN SCRIPT ====== -->
+    <script src="script.js"></script>
+
+</body>
 </html>
