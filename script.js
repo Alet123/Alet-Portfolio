@@ -104,11 +104,10 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 // ──────────────────────────────────────────────
-// CLICKABLE WORK CARDS (FIX)
+// CLICKABLE WORK CARDS (Flipbooks + Instagram)
 // ──────────────────────────────────────────────
 document.querySelectorAll('.work-card').forEach(card => {
     card.addEventListener('click', function(e) {
-        // If the click is on a link inside (like the overlay), it will bubble, but we want to open anyway.
         const link = this.dataset.link;
         if (link) {
             window.open(link, '_blank');
@@ -125,7 +124,6 @@ document.querySelectorAll('.theme-switchers .bx').forEach(icon => {
         document.documentElement.style.setProperty('--accent', color);
         document.documentElement.style.setProperty('--accent-glow', color + '40');
         localStorage.setItem('portfolio-accent', color);
-        // Bounce animation
         this.style.transform = 'scale(1.4)';
         setTimeout(() => this.style.transform = 'scale(1)', 200);
     });
@@ -173,4 +171,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('🚀 Portfolio ready! Dark/Light toggle works, work cards are clickable.');
+console.log('🚀 Alet Jacob Portfolio — Fully functional with Instagram reels!');
