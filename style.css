@@ -1,5 +1,5 @@
 /* ============================================================
-   🎨 ALET JACOB – PREMIUM STYLES
+   🎨 ALET JACOB – PREMIUM STYLES (with 3D Tilt & Animations)
    ============================================================ */
 
 * {
@@ -315,7 +315,10 @@ body {
     padding: 2rem 1.5rem;
     position: relative;
     overflow: hidden;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--bg-secondary), var(--bg));
+    transition: background 0.1s ease;
 }
+
 .hero-bg-shapes {
     position: absolute;
     inset: 0;
@@ -327,6 +330,7 @@ body {
     border-radius: 50%;
     filter: blur(80px);
     opacity: 0.15;
+    animation: floatBlob var(--duration, 12s) ease-in-out infinite;
 }
 .shape-1 {
     width: 400px;
@@ -334,7 +338,7 @@ body {
     background: var(--accent);
     top: -100px;
     right: -100px;
-    animation: floatBlob 12s ease-in-out infinite;
+    --duration: 14s;
 }
 .shape-2 {
     width: 300px;
@@ -342,17 +346,44 @@ body {
     background: #ff61d9;
     bottom: -80px;
     left: -80px;
-    animation: floatBlob 16s ease-in-out infinite reverse;
+    --duration: 18s;
+}
+.shape-3 {
+    width: 200px;
+    height: 200px;
+    background: #3b82f6;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    --duration: 22s;
 }
 
 @keyframes floatBlob {
     0%,
     100% {
-        transform: translate(0, 0) scale(1);
+        transform: translate(0, 0) scale(1) rotate(0deg);
+    }
+    25% {
+        transform: translate(40px, -60px) scale(1.1) rotate(5deg);
     }
     50% {
-        transform: translate(30px, -40px) scale(1.2);
+        transform: translate(-30px, -40px) scale(0.9) rotate(-5deg);
     }
+    75% {
+        transform: translate(50px, 30px) scale(1.05) rotate(3deg);
+    }
+}
+
+/* Hero Spotlight Overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), var(--accent-glow), transparent 60%);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+    transition: opacity 0.3s;
 }
 
 .hero-content {
@@ -617,19 +648,27 @@ body {
     margin: 0 auto;
 }
 
+/* ── 3D WORK CARD ── */
 .work-card {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--radius);
     overflow: hidden;
-    transition: var(--transition);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
     backdrop-filter: blur(10px);
     cursor: pointer;
+    perspective: 800px;
+    transform-style: preserve-3d;
 }
+
+.work-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease;
+}
+
 .work-card:hover {
-    transform: translateY(-8px);
     border-color: var(--accent);
-    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 }
 
 .work-card-icon {
@@ -641,12 +680,13 @@ body {
     border-bottom: 1px solid var(--glass-border);
     font-size: 2.2rem;
     color: var(--accent);
-    transition: var(--transition);
+    transition: background 0.4s ease, color 0.4s ease, transform 0.4s ease;
     pointer-events: none;
 }
 .work-card:hover .work-card-icon {
     background: var(--accent);
     color: #fff;
+    transform: translateZ(20px);
 }
 
 .work-card-image {
@@ -654,39 +694,54 @@ body {
     position: relative;
     overflow: hidden;
     background: linear-gradient(135deg, #2d1b69, #6c3cb0);
-    background-size: 300% 300%;
-    animation: cardGradient 6s ease-in-out infinite;
+    background-size: 200% 200%;
     display: flex;
     align-items: center;
     justify-content: center;
     pointer-events: none;
+    transition: background-position 0.3s ease;
 }
-@keyframes cardGradient {
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
+
+.work-card-image .work-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
 }
+.work-card:hover .work-image .work-overlay {
+    opacity: 1;
+}
+
+/* Fallback for specific gradient assignments */
 .work-card:nth-child(2) .work-card-image {
     background: linear-gradient(135deg, #1a3a2b, #2d8f5e, #22c55e);
+    background-size: 200% 200%;
 }
 .work-card:nth-child(3) .work-card-image {
     background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+    background-size: 200% 200%;
 }
 .work-card:nth-child(4) .work-card-image {
     background: linear-gradient(135deg, #1a0f2e, #7c3aed, #ec4899);
+    background-size: 200% 200%;
 }
 .work-card:nth-child(5) .work-card-image {
     background: linear-gradient(135deg, #2d1b69, #ec4899, #f59e0b);
+    background-size: 200% 200%;
 }
 .work-card:nth-child(6) .work-card-image {
     background: linear-gradient(135deg, #1a2a3a, #f59e0b, #ef4444);
+    background-size: 200% 200%;
 }
 .work-card:nth-child(7) .work-card-image {
     background: linear-gradient(135deg, #0f172a, #38bdf8, #818cf8);
+    background-size: 200% 200%;
 }
 
 .work-overlay {
@@ -698,7 +753,7 @@ body {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: var(--transition);
+    transition: opacity 0.4s ease;
     pointer-events: none;
 }
 .work-card:hover .work-overlay {
@@ -723,7 +778,13 @@ body {
 .work-card-info {
     padding: 1.2rem;
     pointer-events: none;
+    transform: translateZ(10px);
+    transition: transform 0.4s ease;
 }
+.work-card:hover .work-card-info {
+    transform: translateZ(20px);
+}
+
 .work-category {
     display: inline-block;
     font-size: 0.7rem;
@@ -743,6 +804,22 @@ body {
 .work-card-info p {
     font-size: 0.9rem;
     color: var(--text-secondary);
+}
+
+/* Card Mouse Glow */
+.work-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 255, 255, 0.1), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: var(--radius);
+}
+.work-card:hover::after {
+    opacity: 1;
 }
 
 /* ── About ── */
