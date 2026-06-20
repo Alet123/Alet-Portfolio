@@ -1,156 +1,201 @@
-// === 🌗 Theme Toggle ===
-const themeToggle = document.getElementById("themeToggle");
+// ──────────────────────────────────────────────
+// PRELOADER
+// ──────────────────────────────────────────────
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    setTimeout(() => preloader.classList.add('hidden'), 600);
+});
+
+// ──────────────────────────────────────────────
+// CURSOR
+// ──────────────────────────────────────────────
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+
+let mouseX = 0,
+    mouseY = 0;
+let ringX = 0,
+    ringY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+});
+
+function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+}
+animateRing();
+
+// ──────────────────────────────────────────────
+// THEME TOGGLE
+// ──────────────────────────────────────────────
+const themeToggle = document.getElementById('themeToggle');
 const body = document.body;
 
-// Load saved theme from localStorage
-const savedTheme = localStorage.getItem("portfolio-theme");
+const savedTheme = localStorage.getItem('portfolio-theme');
 if (savedTheme) {
-  body.setAttribute("data-theme", savedTheme);
-  if (savedTheme === "light") themeToggle.checked = true;
+    body.setAttribute('data-theme', savedTheme);
+    if (savedTheme === 'light') themeToggle.checked = true;
 }
 
-// Toggle light/dark mode
-themeToggle?.addEventListener("change", () => {
-  const newTheme = themeToggle.checked ? "light" : "dark";
-  body.classList.add("theme-transition");
-  body.setAttribute("data-theme", newTheme);
-  localStorage.setItem("portfolio-theme", newTheme);
-  accentPulse();
-  setTimeout(() => body.classList.remove("theme-transition"), 600);
-  if (window.AOS) AOS.refresh();
+themeToggle.addEventListener('change', () => {
+    const newTheme = themeToggle.checked ? 'light' : 'dark';
+    body.setAttribute('data-theme', newTheme);
+    localStorage.setItem('portfolio-theme', newTheme);
 });
 
-// === 🎨 Auto Name Color Cycle ===
-const nameElement = document.querySelector(".gradient-text");
-if (nameElement) {
-  const colors = ["#ff6f61", "#f97316", "#ff61d9", "#4a90e2", "#a259ff"];
-  let i = 0;
-  setInterval(() => {
-    nameElement.style.transition = "color 1s ease";
-    nameElement.style.color = colors[i];
-    nameElement.style.webkitTextFillColor = colors[i];
-    nameElement.style.background = "none";
-    i = (i + 1) % colors.length;
-  }, 2000);
-}
+// ──────────────────────────────────────────────
+// NAVBAR
+// ──────────────────────────────────────────────
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
 
-
-// === 🎨 Accent Colors ===
-const savedAccent = localStorage.getItem("portfolio-accent");
-if (savedAccent) {
-  document.documentElement.style.setProperty("--accent", savedAccent);
-}
-
-function setAccent(color) {
-  document.documentElement.style.setProperty("--accent", color);
-  localStorage.setItem("portfolio-accent", color);
-  accentPulse();
-  if (window.AOS) AOS.refresh();
-}
-
-// Available accent themes
-function set_color_purple() { setAccent("#a259ff"); }
-function set_color_pink() { setAccent("#ff61d9"); }
-function set_color_orange() { setAccent("#f97316"); }
-function set_color_blue() { setAccent("#2196f3"); }
-function set_color_bluegray() { setAccent("#546e7a"); }
-
-// === ✨ Accent Pulse Animation ===
-function accentPulse() {
-  const flash = document.createElement("div");
-  flash.className = "accent-flash";
-  document.body.appendChild(flash);
-  setTimeout(() => flash.remove(), 700);
-}
-
-// Inject accent animation style dynamically
-const style = document.createElement("style");
-style.textContent = `
-  body.theme-transition {
-    transition: background 0.6s ease, color 0.6s ease;
-  }
-
-  .accent-flash {
-    position: fixed;
-    inset: 0;
-    background: var(--accent);
-    opacity: 0.08;
-    z-index: 9999;
-    animation: accentFade 0.6s ease forwards;
-    pointer-events: none;
-  }
-
-  @keyframes accentFade {
-    from { opacity: 0.25; }
-    to { opacity: 0; }
-  }
-`;
-document.head.appendChild(style);
-
-// === ⌨️ Typing Animation for Hero Intro ===
-document.addEventListener("DOMContentLoaded", () => {
-  const heroIntro = document.querySelector(".hero-intro");
-  if (!heroIntro) return;
-
-  const text = heroIntro.textContent.trim();
-  heroIntro.textContent = "";
-  heroIntro.style.opacity = "1";
-
-  let index = 0;
-  const speed = window.innerWidth < 600 ? 100 : 80;
-
-  function typeLetter() {
-    if (index < text.length) {
-      heroIntro.textContent += text[index];
-      index++;
-      setTimeout(typeLetter, speed);
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
     }
-  }
-
-  setTimeout(typeLetter, 300);
 });
 
-// === 🌈 Animate Brush Icons on Click ===
-document.querySelectorAll(".theme-switchers .bx").forEach((icon) => {
-  icon.addEventListener("click", () => {
-    icon.style.transform = "scale(1.3)";
-    setTimeout(() => (icon.style.transform = "scale(1)"), 200);
-  });
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('open');
 });
 
-// === 🌟 Scroll Reveal Animation for Sections (Intersection Observer) ===
-const revealElements = document.querySelectorAll(
-  ".education__card, .experience-card, .skill-card, .flipbook-card"
-);
-
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = "1";
-        entry.target.style.transform = "translateY(0)";
-        observer.unobserve(entry.target);
-      }
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('open');
     });
-  },
-  {
-    threshold: 0.15,
-  }
-);
-
-revealElements.forEach((el) => observer.observe(el));
-
-// === 🧭 Smooth Scroll for Anchor Links ===
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href").substring(1);
-    const targetElement = document.getElementById(targetId);
-    if (targetElement) {
-      e.preventDefault();
-      window.scrollTo({
-        top: targetElement.offsetTop - 50,
-        behavior: "smooth",
-      });
-    }
-  });
 });
+
+// ──────────────────────────────────────────────
+// STAT COUNTER
+// ──────────────────────────────────────────────
+const statNumbers = document.querySelectorAll('.stat-number');
+
+const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-count'));
+            let current = 0;
+            const increment = target / 40;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    el.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    el.textContent = Math.floor(current);
+                }
+            }, 30);
+            counterObserver.unobserve(el);
+        }
+    });
+}, { threshold: 0.5 });
+
+statNumbers.forEach(el => counterObserver.observe(el));
+
+// ──────────────────────────────────────────────
+// WORK FILTERS
+// ──────────────────────────────────────────────
+const filterBtns = document.querySelectorAll('.filter-btn');
+const workCards = document.querySelectorAll('.work-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.getAttribute('data-filter');
+
+        workCards.forEach(card => {
+            if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                card.style.display = 'block';
+                card.style.animation = 'fadeUp 0.6s ease forwards';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// ──────────────────────────────────────────────
+// COLOR BRUSHES
+// ──────────────────────────────────────────────
+document.querySelectorAll('.theme-switchers .bx').forEach(icon => {
+    icon.addEventListener('click', () => {
+        const color = icon.getAttribute('data-color');
+        document.documentElement.style.setProperty('--accent', color);
+        document.documentElement.style.setProperty('--accent-dim', color + '80');
+        document.documentElement.style.setProperty('--accent-glow', color + '40');
+        localStorage.setItem('portfolio-accent', color);
+        icon.style.transform = 'scale(1.3)';
+        setTimeout(() => icon.style.transform = 'scale(1)', 200);
+    });
+});
+
+const savedAccent = localStorage.getItem('portfolio-accent');
+if (savedAccent) {
+    document.documentElement.style.setProperty('--accent', savedAccent);
+    document.documentElement.style.setProperty('--accent-dim', savedAccent + '80');
+    document.documentElement.style.setProperty('--accent-glow', savedAccent + '40');
+}
+
+// ──────────────────────────────────────────────
+// SMOOTH SCROLL
+// ──────────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href').substring(1);
+        const target = document.getElementById(targetId);
+        if (target) {
+            e.preventDefault();
+            window.scrollTo({
+                top: target.offsetTop - 70,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// ──────────────────────────────────────────────
+// CONTACT FORM
+// ──────────────────────────────────────────────
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('contactName').value.trim();
+    const email = document.getElementById('contactEmail').value.trim();
+    const message = document.getElementById('contactMessage').value.trim();
+
+    if (!name || !email || !message) {
+        alert('Please fill in all fields.');
+        return;
+    }
+    alert('Thank you, ' + name + '! Your message has been sent. I\'ll get back to you soon.');
+    e.target.reset();
+});
+
+// ──────────────────────────────────────────────
+// KEYBOARD SHORTCUT: Toggle theme with 'T'
+// ──────────────────────────────────────────────
+document.addEventListener('keydown', (e) => {
+    if (e.key === 't' || e.key === 'T') {
+        if (!e.ctrlKey && !e.metaKey) {
+            themeToggle.checked = !themeToggle.checked;
+            themeToggle.dispatchEvent(new Event('change'));
+        }
+    }
+});
+
+console.log('🚀 Alet Jacob Portfolio — Premium Edition loaded.');
