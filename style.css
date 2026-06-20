@@ -1,8 +1,7 @@
 /* ============================================================
-   🎨 ALET JACOB – PREMIUM STYLES (Dubai/GCC Edition)
+   🎨 ALET JACOB – PREMIUM STYLES
    ============================================================ */
 
-/* ── Reset ── */
 * {
     margin: 0;
     padding: 0;
@@ -48,7 +47,6 @@ body {
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
-    cursor: none;
     transition: background var(--transition), color var(--transition);
 }
 
@@ -68,7 +66,6 @@ body {
     border-radius: 10px;
 }
 
-/* ── Typography ── */
 .section-tag {
     display: inline-block;
     font-size: 0.8rem;
@@ -110,7 +107,6 @@ body {
     color: var(--accent);
 }
 
-/* ── Buttons ── */
 .btn-primary {
     display: inline-flex;
     align-items: center;
@@ -156,7 +152,6 @@ body {
     transform: translateY(-3px);
 }
 
-/* ── Preloader ── */
 .preloader {
     position: fixed;
     inset: 0;
@@ -194,7 +189,6 @@ body {
     }
 }
 
-/* ── Cursor ── */
 .cursor-dot {
     position: fixed;
     width: 8px;
@@ -229,12 +223,11 @@ body {
     }
 }
 
-/* ── Theme Toggle ── */
 .theme-toggle-wrapper {
     position: fixed;
     top: 1.2rem;
     right: 1.2rem;
-    z-index: 999;
+    z-index: 9999;
     display: flex;
     align-items: center;
     gap: 0.6rem;
@@ -454,19 +447,7 @@ body {
         letter-spacing: 1px;
     }
 }
-.theme-status {
-    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-.theme-status.light {
-    color: #f59e0b;
-    text-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
-}
-.theme-status.dark {
-    color: #818cf8;
-    text-shadow: 0 0 20px rgba(129, 140, 248, 0.2);
-}
 
-/* ── Navbar ── */
 .navbar {
     position: fixed;
     top: 0;
@@ -583,7 +564,6 @@ body {
     }
 }
 
-/* ── Hero ── */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -679,8 +659,6 @@ body {
     color: var(--text-secondary);
     margin-bottom: 0.25rem;
 }
-
-/* ── ANIMATED HEADER ── */
 .gradient-text {
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 900;
@@ -692,7 +670,6 @@ body {
     background-clip: text;
     margin-bottom: 0.25rem;
     animation: gradientFlow 4s ease-in-out infinite, textGlow 3s ease-in-out infinite alternate;
-    position: relative;
     display: inline-block;
     letter-spacing: -0.03em;
 }
@@ -713,7 +690,6 @@ body {
         filter: drop-shadow(0 0 30px rgba(162, 89, 255, 0.3)) drop-shadow(0 0 60px rgba(255, 97, 217, 0.15));
     }
 }
-
 .subtitle {
     font-size: 1.3rem;
     color: var(--text-secondary);
@@ -759,9 +735,6 @@ body {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     margin-top: 0.3rem;
-}
-.stat-divider {
-    display: none;
 }
 .social-icons {
     display: flex;
@@ -825,7 +798,6 @@ body {
     }
 }
 
-/* ── WORK / PORTFOLIO ── */
 .work {
     padding: 5rem 2rem;
     background: var(--bg-secondary);
@@ -903,8 +875,6 @@ body {
     justify-content: center;
     transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
-
-/* ── ANIMATED GRADIENTS FOR WORK CARDS ── */
 .work-card:nth-child(1) .work-card-image {
     background: linear-gradient(135deg, #2d1b69, #6c3cb0, #ff61d9);
     background-size: 300% 300%;
@@ -1092,7 +1062,6 @@ body {
     color: var(--text-secondary);
 }
 
-/* ── About ── */
 .about {
     padding: 5rem 2rem;
 }
@@ -1185,14 +1154,13 @@ body {
     }
 }
 
-/* ── Skills ── */
 .skills {
     padding: 5rem 2rem;
     background: var(--bg-secondary);
 }
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
@@ -1234,7 +1202,6 @@ body {
     transition: width 1s ease;
 }
 
-/* ── Education ── */
 .education {
     padding: 5rem 2rem;
 }
@@ -1290,7 +1257,6 @@ body {
     margin-top: 4px;
 }
 
-/* ── Experience ── */
 .experience {
     padding: 5rem 2rem;
     background: var(--bg-secondary);
@@ -1355,7 +1321,6 @@ body {
     }
 }
 
-/* ── Resume ── */
 .resume {
     padding: 5rem 2rem;
     background: var(--bg-secondary);
@@ -1401,7 +1366,6 @@ body {
     padding: 12px 28px;
 }
 
-/* ── Testimonials ── */
 .testimonials {
     padding: 5rem 2rem;
 }
@@ -1444,7 +1408,6 @@ body {
     color: var(--text-muted);
 }
 
-/* ── Contact ── */
 .contact {
     padding: 5rem 2rem;
     background: var(--bg-secondary);
@@ -1525,7 +1488,6 @@ body {
     }
 }
 
-/* ── Footer ── */
 .footer {
     padding: 3rem 2rem 1.5rem;
     background: var(--bg);
@@ -1609,7 +1571,6 @@ body {
     }
 }
 
-/* ── Floating Contact ── */
 .floating-contact {
     position: fixed;
     bottom: 1.5rem;
@@ -1649,7 +1610,6 @@ body {
     }
 }
 
-/* ── Theme Switchers ── */
 .theme-switchers {
     position: fixed;
     bottom: 5.5rem;
@@ -1707,7 +1667,6 @@ body {
     }
 }
 
-/* ── Responsive ── */
 @media (max-width: 600px) {
     .hero {
         padding: 5rem 1rem 1rem;
