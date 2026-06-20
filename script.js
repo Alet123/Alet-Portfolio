@@ -198,4 +198,4 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-console.log('🚀 Alet Jacob Portfolio — Premium Edition loaded.');
+console.log('🚀 Alet Jacob Portfolio — Premium Dubai/GCC Edition loaded.');
