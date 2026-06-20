@@ -36,20 +36,89 @@ animateRing();
 // ──────────────────────────────────────────────
 // THEME TOGGLE
 // ──────────────────────────────────────────────
-const themeToggle = document.getElementById('themeToggle');
-const body = document.body;
+const toggleBtn = document.getElementById('themeToggleBtn');
+const statusText = document.getElementById('themeStatus');
+const sparkleContainer = document.getElementById('toggleSparkle');
+const root = document.documentElement;
 
-const savedTheme = localStorage.getItem('portfolio-theme');
-if (savedTheme) {
-    body.setAttribute('data-theme', savedTheme);
-    if (savedTheme === 'light') themeToggle.checked = true;
+function getCurrentTheme() {
+    return root.getAttribute('data-theme') || 'dark';
 }
 
-themeToggle.addEventListener('change', () => {
-    const newTheme = themeToggle.checked ? 'light' : 'dark';
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('portfolio-theme', newTheme);
+function updateThemeUI(theme) {
+    if (theme === 'light') {
+        statusText.textContent = 'Light';
+        statusText.className = 'theme-status light';
+    } else {
+        statusText.textContent = 'Dark';
+        statusText.className = 'theme-status dark';
+    }
+    root.setAttribute('data-theme', theme);
+    localStorage.setItem('portfolio-theme', theme);
+    const checkbox = document.getElementById('themeToggle');
+    if (checkbox) {
+        checkbox.checked = (theme === 'light');
+    }
+}
+
+function toggleTheme() {
+    const current = getCurrentTheme();
+    const newTheme = current === 'dark' ? 'light' : 'dark';
+    updateThemeUI(newTheme);
+    createSparkles();
+    document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme: newTheme } }));
+}
+
+function createSparkles() {
+    const rect = toggleBtn.getBoundingClientRect();
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const count = 12;
+    for (let i = 0; i < count; i++) {
+        const sparkle = document.createElement('span');
+        const angle = (i / count) * Math.PI * 2 + Math.random() * 0.5;
+        const distance = 20 + Math.random() * 40;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        sparkle.style.setProperty('--tx', tx + 'px');
+        sparkle.style.setProperty('--ty', ty + 'px');
+        sparkle.style.left = cx + 'px';
+        sparkle.style.top = cy + 'px';
+        sparkle.style.width = (2 + Math.random() * 4) + 'px';
+        sparkle.style.height = sparkle.style.width;
+        sparkle.style.animationDuration = (0.4 + Math.random() * 0.4) + 's';
+        sparkleContainer.appendChild(sparkle);
+        setTimeout(() => {
+            sparkle.remove();
+        }, 800);
+    }
+}
+
+toggleBtn.addEventListener('click', toggleTheme);
+
+document.addEventListener('keydown', (e) => {
+    if ((e.key === 't' || e.key === 'T') && !e.ctrlKey && !e.metaKey) {
+        e.preventDefault();
+        toggleTheme();
+    }
 });
+
+const savedTheme = localStorage.getItem('portfolio-theme');
+if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+    updateThemeUI(savedTheme);
+} else {
+    updateThemeUI('dark');
+}
+
+const oldCheckbox = document.getElementById('themeToggle');
+if (oldCheckbox) {
+    oldCheckbox.addEventListener('change', function() {
+        const theme = this.checked ? 'light' : 'dark';
+        updateThemeUI(theme);
+        createSparkles();
+    });
+    oldCheckbox.checked = (getCurrentTheme() === 'light');
+}
 
 // ──────────────────────────────────────────────
 // NAVBAR
@@ -77,34 +146,6 @@ document.querySelectorAll('.nav-links a').forEach(link => {
         navLinks.classList.remove('open');
     });
 });
-
-// ──────────────────────────────────────────────
-// STAT COUNTER
-// ──────────────────────────────────────────────
-const statNumbers = document.querySelectorAll('.stat-number');
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const el = entry.target;
-            const target = parseInt(el.getAttribute('data-count'));
-            let current = 0;
-            const increment = target / 40;
-            const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    el.textContent = target;
-                    clearInterval(timer);
-                } else {
-                    el.textContent = Math.floor(current);
-                }
-            }, 30);
-            counterObserver.unobserve(el);
-        }
-    });
-}, { threshold: 0.5 });
-
-statNumbers.forEach(el => counterObserver.observe(el));
 
 // ──────────────────────────────────────────────
 // WORK FILTERS
@@ -187,15 +228,16 @@ document.getElementById('contactForm').addEventListener('submit', (e) => {
 });
 
 // ──────────────────────────────────────────────
-// KEYBOARD SHORTCUT: Toggle theme with 'T'
+// MOUSE TRACKING FOR CARD SHINE
 // ──────────────────────────────────────────────
-document.addEventListener('keydown', (e) => {
-    if (e.key === 't' || e.key === 'T') {
-        if (!e.ctrlKey && !e.metaKey) {
-            themeToggle.checked = !themeToggle.checked;
-            themeToggle.dispatchEvent(new Event('change'));
-        }
-    }
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        card.style.setProperty('--mouse-x', x + '%');
+        card.style.setProperty('--mouse-y', y + '%');
+    });
 });
 
-console.log('🚀 Alet Jacob Portfolio — Premium Dubai/GCC Edition loaded.');
+console.log('🚀 Premium Portfolio — Fully Animated & Creative');
