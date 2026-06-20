@@ -116,6 +116,65 @@ document.querySelectorAll('.work-card').forEach(card => {
 });
 
 // ──────────────────────────────────────────────
+// PREMIUM 3D TILT & SPOTLIGHT (Desktop only)
+// ──────────────────────────────────────────────
+if (window.innerWidth > 768) {
+
+    // Hero Spotlight
+    const hero = document.querySelector('.hero');
+    hero.addEventListener('mousemove', (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * 100;
+        const y = ((e.clientY - rect.top) / rect.height) * 100;
+        hero.style.setProperty('--mouse-x', x + '%');
+        hero.style.setProperty('--mouse-y', y + '%');
+    });
+
+    // Work Card 3D Tilt
+    document.querySelectorAll('.work-card').forEach(card => {
+        const inner = card.querySelector('.work-card-inner');
+
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            // Calculate rotation (max ±10 degrees)
+            const rotateX = ((y - centerY) / centerY) * -10;
+            const rotateY = ((x - centerX) / centerX) * 10;
+
+            // Apply 3D transform
+            inner.style.transform =
+                `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            // Update glow position (CSS custom properties)
+            const xPercent = (x / rect.width) * 100;
+            const yPercent = (y / rect.height) * 100;
+            card.style.setProperty('--mouse-x', xPercent + '%');
+            card.style.setProperty('--mouse-y', yPercent + '%');
+
+            // Dynamic gradient shift on the card image
+            const img = card.querySelector('.work-card-image');
+            if (img) {
+                img.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+            }
+        });
+
+        card.addEventListener('mouseleave', () => {
+            inner.style.transform = 'rotateX(0deg) rotateY(0deg)';
+            card.style.setProperty('--mouse-x', '50%');
+            card.style.setProperty('--mouse-y', '50%');
+            const img = card.querySelector('.work-card-image');
+            if (img) {
+                img.style.backgroundPosition = '50% 50%';
+            }
+        });
+    });
+}
+
+// ──────────────────────────────────────────────
 // COLOR BRUSHES (Accent Color)
 // ──────────────────────────────────────────────
 document.querySelectorAll('.theme-switchers .bx').forEach(icon => {
@@ -171,4 +230,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('🚀 Alet Jacob Portfolio — Fully functional with Instagram reels!');
+console.log('🚀 Alet Jacob Portfolio — Premium 3D Tilt & Animations loaded!');
