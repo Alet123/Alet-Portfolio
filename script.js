@@ -240,4 +240,4 @@ document.querySelectorAll('.work-card').forEach(card => {
     });
 });
 
-console.log('🚀 Premium Portfolio — Fully Animated & Creative');
+console.log('🚀 Premium Portfolio — All fixed and ready!');
