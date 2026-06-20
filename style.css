@@ -614,6 +614,7 @@ body {
     overflow: hidden;
     transition: var(--transition);
     backdrop-filter: blur(10px);
+    cursor: pointer; /* make it look clickable */
 }
 .work-card:hover {
     transform: translateY(-8px);
@@ -631,6 +632,7 @@ body {
     font-size: 2.2rem;
     color: var(--accent);
     transition: var(--transition);
+    pointer-events: none; /* prevent interfering with click */
 }
 .work-card:hover .work-card-icon {
     background: var(--accent);
@@ -647,6 +649,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    pointer-events: none; /* prevent interfering with click */
 }
 @keyframes cardGradient {
     0%,
@@ -686,34 +689,30 @@ body {
     justify-content: center;
     opacity: 0;
     transition: var(--transition);
+    pointer-events: none; /* prevent interfering with click */
 }
 .work-card:hover .work-overlay {
     opacity: 1;
 }
 
-.work-link {
+.work-link-icon {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 6px;
     color: #fff;
-    text-decoration: none;
-    font-size: 1.8rem;
-    transition: var(--transition);
-}
-.work-link span {
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
 }
-.work-link:hover {
-    transform: scale(1.1);
-    color: var(--accent);
+.work-link-icon i {
+    font-size: 2rem;
 }
 
 .work-card-info {
     padding: 1.2rem;
+    pointer-events: none; /* prevent interfering with click */
 }
 .work-category {
     display: inline-block;
