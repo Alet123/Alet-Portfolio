@@ -104,6 +104,19 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 // ──────────────────────────────────────────────
+// CLICKABLE WORK CARDS (FIX)
+// ──────────────────────────────────────────────
+document.querySelectorAll('.work-card').forEach(card => {
+    card.addEventListener('click', function(e) {
+        // If the click is on a link inside (like the overlay), it will bubble, but we want to open anyway.
+        const link = this.dataset.link;
+        if (link) {
+            window.open(link, '_blank');
+        }
+    });
+});
+
+// ──────────────────────────────────────────────
 // COLOR BRUSHES (Accent Color)
 // ──────────────────────────────────────────────
 document.querySelectorAll('.theme-switchers .bx').forEach(icon => {
@@ -160,4 +173,4 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('🚀 Portfolio ready! Dark/Light toggle works, links work.');
+console.log('🚀 Portfolio ready! Dark/Light toggle works, work cards are clickable.');
